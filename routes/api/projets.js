@@ -97,6 +97,7 @@ router.put('/', (req, res) => {
   })
 })
 
+//Deletes a project
 router.delete('/', (req, res) => {
   const deleteProject = req.body
 
