@@ -17,11 +17,11 @@ module.exports = class Projet {
    */
   constructor(db, data={}){
     this.#conn = db
+    data.id ? this.#id = data.id : ''
     data.name ? this.#name = data.name : '' 
     data.src ? this.#src = data.src : ''
     data.description ? this.#description = data.description : ''
     data.tech ? this.#tech = data.tech : ''
-    data.id ? this.#id = data.id : ''
   }
   
 
@@ -92,6 +92,21 @@ module.exports = class Projet {
       this.#src,
       this.#description,
       this.#tech,
+      this.#id
+    ]
+
+    this.#conn.query(sql, inserts, callback)
+  }
+
+  /**
+   * Delete a project according to its id
+   * 
+   * @param {apiCallback} callback 
+   * 
+   */
+  delete(callback){
+    const sql = `DELETE FROM ${this.#table} WHERE id=?`
+    const inserts = [
       this.#id
     ]
 

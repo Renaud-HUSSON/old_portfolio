@@ -1,6 +1,6 @@
 const express = require('express')
 const Database = require('../../config/db')
-const Projet = require('../../models/projet')
+const Projet = require('../../models/Projet')
 const router = express.Router()
 
 const database = new Database()
@@ -93,6 +93,32 @@ router.put('/', (req, res) => {
     console.log(results)
     res.send({
       success: `Le projet ${updatedProject.id} a bien été mis à jour`
+    })
+  })
+})
+
+router.delete('/', (req, res) => {
+  const deleteProject = req.body
+
+  if(!deleteProject.id){
+    res.status(400).send({
+      error: 'Un id est nécessaire pour pouvoir supprimer un projet'
+    })
+    return
+  }
+
+  const projet = new Projet(db, deleteProject)
+
+  projet.delete(err => {
+    if(err){
+      res.status(500).send({
+        error: `Une erreur est survenue lors de la suppresion du projet ${deleteProject.id}`
+      })
+      return
+    }
+
+    res.send({
+      success: `Le projet ${deleteProject.id} a bien été supprimé`
     })
   })
 })
