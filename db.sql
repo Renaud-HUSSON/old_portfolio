@@ -20,3 +20,10 @@ CREATE TABLE messages(
     message varchar(2000) NOT NULL,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE users(
+    id int NOT NULL AUTO_INCREMENT,
+    username varchar(30) NOT NULL,
+    password varchar(512) NOT NULL,
+    PRIMARY KEY(id)
+);

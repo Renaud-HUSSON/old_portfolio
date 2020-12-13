@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }))
 //Projects API Routes
 app.use('/api/projects', require('./routes/api/projets'))
 app.use('/api/messages', require('./routes/api/messages'))
+app.use('/login', require('./routes/login'))
 
 //Use PORT defined in env variables if it exists, else run on custom port
 const PORT = process.env.PORT || 8081
