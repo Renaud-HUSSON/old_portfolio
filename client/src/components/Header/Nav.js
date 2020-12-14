@@ -4,10 +4,10 @@ import styled from "styled-components"
 const Nav = ({nav}) => {
   return <StyledNav nav={nav}>
     <ul>
-      <Link><li>À PROPOS</li></Link>
-      <Link><li>PROJETS</li></Link>
-      <Link><li>COMPÉTENCES</li></Link>
-      <Link><li>ME CONTACTER</li></Link>
+      <Link to="/"><li>À PROPOS</li></Link>
+      <Link to="/projets"><li>PROJETS</li></Link>
+      <Link to="/competences"><li>COMPÉTENCES</li></Link>
+      <Link to="/contact"><li>ME CONTACTER</li></Link>
     </ul>
   </StyledNav>
 }

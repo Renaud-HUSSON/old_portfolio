@@ -8,7 +8,7 @@ const Header = () => {
   const [nav, setNav] = useState(false)
 
   return <StyledHeader>
-    <Link>RENAUD HUSSON</Link>
+    <Link to="/">RENAUD HUSSON</Link>
     <Nav nav={nav}/>
     <Burger setNav={setNav}/>
   </StyledHeader>

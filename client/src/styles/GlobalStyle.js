@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat';
   }
 
+  .page-content {
+    min-height: calc(100vh - ${props => props.theme.navHeight} - ${props => props.theme.footerHeight})
+  }
+
   a {
     text-decoration: none;
   }
