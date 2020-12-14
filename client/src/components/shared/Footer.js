@@ -18,6 +18,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   height: ${props => props.theme.footerHeight};
+  overflow: hidden;
 
   > * {
     color: ${props => props.theme.colors.darkBlue};
