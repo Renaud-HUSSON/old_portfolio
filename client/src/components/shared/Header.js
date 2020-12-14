@@ -1,11 +1,16 @@
 import Nav from "../Header/Nav"
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import Burger from "../Header/Burger"
 
 const Header = () => {
+  const [nav, setNav] = useState(false)
+
   return <StyledHeader>
     <Link>RENAUD HUSSON</Link>
-    <Nav />
+    <Nav nav={nav}/>
+    <Burger setNav={setNav}/>
   </StyledHeader>
 }
 
