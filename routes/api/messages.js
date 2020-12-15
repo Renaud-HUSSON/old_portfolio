@@ -100,28 +100,22 @@ router.put('/', (req, res) => {
   })
 })
 
-router.delete('/', (req, res) => {
-  const deleteMessage = req.body
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  const message = new Message(db)
 
-  if(!deleteMessage.id){
-    res.status(400).send({
-      error: 'Un id est nécessaire pour pouvoir supprimer un message'
-    })
-    return
-  }
-
-  const message = new Message(db, deleteMessage)
+  message.id = id
 
   message.delete(err => {
     if(err){
       res.status(500).send({
-        error: `Une erreur est survenue lors de la suppresion du message ${deleteMessage.id}`
+        error: `Une erreur est survenue lors de la suppresion du message ${id}`
       })
       return
     }
 
     res.send({
-      success: `Le projet ${deleteMessage.id} a bien été supprimé`
+      success: `Le projet ${id} a bien été supprimé`
     })
   })
 })

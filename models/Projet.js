@@ -66,9 +66,8 @@ module.exports = class Projet {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET id = ?, name = ?, src = ?, description = ?, tech = ?`
+    const sql = `INSERT INTO ${this.#table} SET name = ?, src = ?, description = ?, tech = ?`
     const inserts = [
-      this.#id,
       this.#name,
       this.#src,
       this.#description,

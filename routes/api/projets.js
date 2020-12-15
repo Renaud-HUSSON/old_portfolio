@@ -17,7 +17,6 @@ router.get('/', (_, res) => {
     }
     res.send([...results])
   })
-  // res.send(projet.read_all())
 })
 
 //Gets a single project
@@ -33,10 +32,9 @@ router.get('/:id', (req, res) => {
       return
     }
     if(results.length === 0){
-      res.status(400).send({
+      return res.status(400).send({
         error: `Le projet ${id} n'existe pas`
       })
-      return
     }
     res.send(...results)
   })
@@ -47,20 +45,18 @@ router.post('/', (req, res) => {
   const newProject = req.body
   
   if(!(newProject.name && newProject.description && newProject.tech)){
-    res.status(400).send({
+    return res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
-    return
   }
 
   const projet = new Projet(db, newProject)
 
   projet.create((err) => {
     if(err){
-      res.send({
+      return res.send({
         error: `Une erreur est survenue lors de la création du projet: ${err}`
       })
-      return
     }
 
     res.send({
@@ -74,23 +70,20 @@ router.put('/', (req, res) => {
   const updatedProject = req.body
 
   if(!(updatedProject.id && updatedProject.name && updatedProject.description && updatedProject.tech)){
-    res.status(400).send({
+    return res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
-    return
   }
   
   const projet = new Projet(db, updatedProject)
 
-  projet.update((err, results) => {
+  projet.update(err => {
     if(err){
-      res.status(500).send({
+      return res.status(500).send({
         error: `Une erreur est survenue lors de la mise à jour du projet ${updatedProject.id}: ${err}`
       })
-      return
     }
 
-    console.log(results)
     res.send({
       success: `Le projet ${updatedProject.id} a bien été mis à jour`
     })
@@ -98,28 +91,22 @@ router.put('/', (req, res) => {
 })
 
 //Deletes a project
-router.delete('/', (req, res) => {
-  const deleteProject = req.body
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  const projet = new Projet(db)
 
-  if(!deleteProject.id){
-    res.status(400).send({
-      error: 'Un id est nécessaire pour pouvoir supprimer un projet'
-    })
-    return
-  }
-
-  const projet = new Projet(db, deleteProject)
+  projet.id = id
 
   projet.delete(err => {
     if(err){
       res.status(500).send({
-        error: `Une erreur est survenue lors de la suppresion du projet ${deleteProject.id}`
+        error: `Une erreur est survenue lors de la suppresion du projet ${id}`
       })
       return
     }
 
     res.send({
-      success: `Le projet ${deleteProject.id} a bien été supprimé`
+      success: `Le projet ${id} a bien été supprimé`
     })
   })
 })
