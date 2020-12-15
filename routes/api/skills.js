@@ -32,9 +32,7 @@ router.get('/:id', (req, res) => {
       return
     }
     if(results.length === 0){
-      res.status(400).send({
-        error: `La compétence ${id} n'existe pas`
-      })
+      console.error(`La compétence ${id} n'existe pas`)
       return
     }
     res.send(...results)
@@ -43,16 +41,16 @@ router.get('/:id', (req, res) => {
 
 //Creates a skill
 router.post('/', (req, res) => {
-  const updatedSkill = req.body
+  const newSkill = req.body
   
-  if(!(updatedSkill.name && updatedSkill.image)){
+  if(!(newSkill.name && newSkill.image)){
     res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
     return
   }
 
-  const skill = new Skill(db, updatedSkill)
+  const skill = new Skill(db, newSkill)
 
   skill.create((err) => {
     if(err){
