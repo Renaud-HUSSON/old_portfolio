@@ -14,6 +14,7 @@ app.use('/api/projects', require('./routes/api/projets'))
 app.use('/api/messages', require('./routes/api/messages'))
 app.use('/api/skills', require('./routes/api/skills'))
 app.use('/api/parcours', require('./routes/api/parcours'))
+app.use('/api/experiences', require('./routes/api/experiences'))
 app.use('/login', require('./routes/login'))
 
 //Use PORT defined in env variables if it exists, else run on custom port

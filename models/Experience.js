@@ -5,8 +5,8 @@ module.exports = class Experience {
 
   //experience properties
   #id
+  #date
   #name
-  #image
 
   /**
    * experience's constructor: Initialize the experience, fields are optional
@@ -16,8 +16,8 @@ module.exports = class Experience {
   constructor(db, data={}){
     this.#conn = db
     data.id ? this.#id = data.id : ''
+    data.date ? this.#date = data.date : ''
     data.name ? this.#name = data.name : ''
-    data.image ? this.#image = data.image : ''
   }
 
 
@@ -62,10 +62,10 @@ module.exports = class Experience {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET name = ?, image=?`
+    const sql = `INSERT INTO ${this.#table} SET date = ?, name=?`
     const inserts = [
-      this.#name,
-      this.#image
+      this.#date,
+      this.#name
     ]
     
     this.#conn.query(sql, inserts, callback)
@@ -78,11 +78,11 @@ module.exports = class Experience {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET name=?, image=? WHERE id=?`
+    const sql = `UPDATE ${this.#table} SET date=?, name=? WHERE id=?`
     
     const inserts = [
+      this.#date,
       this.#name,
-      this.#image,
       this.#id
     ]
 
@@ -113,19 +113,19 @@ module.exports = class Experience {
     this.#id = id;
   }
 
+  get date(){
+    return this.#date
+  }
+
+  set date(date){
+    this.#date = date
+  }
+
   get name(){
     return this.#name
   }
 
   set name(name){
     this.#name = name
-  }
-
-  get image(){
-    return this.#image
-  }
-
-  set image(image){
-    this.#image = image
   }
 }

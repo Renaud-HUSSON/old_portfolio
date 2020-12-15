@@ -81,7 +81,7 @@ router.put('/', (req, res) => {
   parcours.update(err => {
     if(err){
       return res.status(500).send({
-        error: `Une erreur est survenue lors de la mis à jour du parcours ${updatedParcours.id}: ${err}`
+        error: `Une erreur est survenue lors de la mise à jour du parcours ${updatedParcours.id}: ${err}`
       })
     }
 

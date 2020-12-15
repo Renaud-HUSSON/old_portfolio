@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
     }
 
     res.send({
-      success: 'La compétence a bien été ajouté'
+      success: 'La compétence a bien été ajoutée'
     })
   })
 })
