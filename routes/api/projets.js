@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newProject = req.body
   
-  if(!(newProject.name && newProject.description && newProject.tech)){
+  if(!(newProject.name && newProject.image && newProject.description && newProject.tech)){
     return res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
   const updatedProject = req.body
 
-  if(!(updatedProject.id && updatedProject.name && updatedProject.description && updatedProject.tech)){
+  if(!(updatedProject.id && updatedProject.name && updatedProject.image && updatedProject.description && updatedProject.tech)){
     return res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })

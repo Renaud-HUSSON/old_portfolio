@@ -4,11 +4,13 @@ module.exports = class Projet {
   #conn
 
   //Project properties
-  #id;
-  #name;
-  #src;
-  #description;
-  #tech;
+  #id
+  #name
+  #image
+  #description
+  #tech
+  #link
+  #github
   
   /**
    * Project's constructor: Initialize the new project, fields are optional
@@ -19,9 +21,11 @@ module.exports = class Projet {
     this.#conn = db
     data.id ? this.#id = data.id : ''
     data.name ? this.#name = data.name : '' 
-    data.src ? this.#src = data.src : ''
+    data.image ? this.#image = data.image : ''
     data.description ? this.#description = data.description : ''
     data.tech ? this.#tech = data.tech : ''
+    data.link ? this.#link = data.link : ''
+    data.github ? this.#github = data.github : ''
   }
   
 
@@ -42,7 +46,7 @@ module.exports = class Projet {
    * 
    */
   read_all(callback) {
-    const sql = `SELECT * FROM ${this.#table}`
+    const sql = `SELECT * FROM ${this.#table} ORDER BY id DESC`
 
     this.#conn.query(sql, callback)
   }
@@ -66,12 +70,14 @@ module.exports = class Projet {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET name = ?, src = ?, description = ?, tech = ?`
+    const sql = `INSERT INTO ${this.#table} SET name = ?, image = ?, description = ?, tech = ?, set link=?, set github=?`
     const inserts = [
       this.#name,
-      this.#src,
+      this.#image,
       this.#description,
-      this.#tech
+      this.#tech,
+      this.#link,
+      this.#github
     ]
     
     this.#conn.query(sql, inserts, callback)
@@ -84,14 +90,16 @@ module.exports = class Projet {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET name=?, src=?, description=?, tech=? WHERE id=?`
+    const sql = `UPDATE ${this.#table} SET name=?, image=?, description=?, tech=?, set link=?, set github=? WHERE id=?`
     
     const inserts = [
       this.#name,
-      this.#src,
+      this.#image,
       this.#description,
       this.#tech,
-      this.#id
+      this.#id,
+      this.#link,
+      this.#github
     ]
 
     this.#conn.query(sql, inserts, callback)
@@ -121,12 +129,12 @@ module.exports = class Projet {
     this.#id = id;
   }
   
-  get src(){
-    return this.src
+  get image(){
+    return this.image
   }
   
-  set src(src){
-    this.#src = src;
+  set image(image){
+    this.#image = image;
   }
 
   get name(){
@@ -151,5 +159,21 @@ module.exports = class Projet {
 
   set tech(tech){
     this.#tech = tech;
+  }
+
+  get link(){
+    return this.#link
+  }
+
+  set link(link){
+    this.#link = link
+  }
+
+  get github(){
+    return this.#github
+  }
+
+  set github(github){
+    this.#github = github
   }
 }

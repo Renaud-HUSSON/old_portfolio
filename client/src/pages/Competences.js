@@ -7,7 +7,7 @@ const Competences = () => {
   return <StyledCompetences className="content">
     <h1>COMPÉTENCES</h1>
     <Skills />
-    <h1>PARCOURS</h1>
+    <h1>MON PARCOURS</h1>
     <Parcours />
     <h1>EXPÉRIENCES PROFESSIONNELLES</h1>
     <Experiences />
