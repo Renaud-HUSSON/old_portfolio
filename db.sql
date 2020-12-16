@@ -16,14 +16,16 @@ CREATE TABLE projets(
 
 CREATE TABLE messages(
   id int NOT NULL AUTO_INCREMENT,
+  username varchar(50) NOT NULL,
   email varchar(50) NOT NULL,
   message varchar(2000) NOT NULL,
   PRIMARY KEY(id)
 );
 
-CREATE TABLE skills(
+CREATE TABLE competences(
   id int NOT NULL AUTO_INCREMENT,
   name varchar(30) NOT NULL,
+  type varchar(30) NOT NULL,
   image varchar(100) NOT NULL,
   PRIMARY KEY(id)
 );

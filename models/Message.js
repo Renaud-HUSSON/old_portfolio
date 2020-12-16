@@ -5,6 +5,7 @@ module.exports = class Message {
 
   //Message properties
   #id
+  #username
   #email
   #message
   
@@ -16,6 +17,7 @@ module.exports = class Message {
   constructor(db, data={}){
     this.#conn = db
     data.id ? this.#id = data.id : ''
+    data.username ? this.#username = data.username : ''
     data.email ? this.#email = data.email : '' 
     data.message ? this.#message = data.message : ''
   }
@@ -61,8 +63,9 @@ module.exports = class Message {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET email=?, message=?`
+    const sql = `INSERT INTO ${this.#table} SET username=?, email=?, message=?`
     const inserts = [
+      this.#username,
       this.#email,
       this.#message
     ]
@@ -77,8 +80,9 @@ module.exports = class Message {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET email=?, message=? WHERE id=?`
+    const sql = `UPDATE ${this.#table} SET username=?, email=?, message=? WHERE id=?`
     const inserts = [
+      this.#username,
       this.#email,
       this.#message,
       this.#id
@@ -109,6 +113,14 @@ module.exports = class Message {
 
   set id(id){
     this.#id = id
+  }
+
+  get username(){
+    return this.#username
+  }
+
+  set username(username){
+    this.#username = username
   }
 
   get email(){

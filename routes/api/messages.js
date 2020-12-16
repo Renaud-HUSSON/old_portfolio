@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newMessage = req.body
 
-  if(!(newMessage.email && newMessage.message)){
+  if(!(newMessage.username && newMessage.email && newMessage.message)){
     res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
@@ -77,7 +77,7 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
   const updatedMessage = req.body
 
-  if(!(updatedMessage.id && updatedMessage.email && updatedMessage.message)){
+  if(!(updatedMessage.id && updatedMessage.username && updatedMessage.email && updatedMessage.message)){
     res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })
@@ -115,7 +115,7 @@ router.delete('/:id', (req, res) => {
     }
 
     res.send({
-      success: `Le projet ${id} a bien été supprimé`
+      success: `Le message ${id} a bien été supprimé`
     })
   })
 })

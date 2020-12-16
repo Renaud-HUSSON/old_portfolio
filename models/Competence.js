@@ -1,11 +1,12 @@
-module.exports = class Skill {
+module.exports = class Competence {
   //DB properties
-  #table = 'skills'
+  #table = 'competences'
   #conn
 
   //Skill properties
   #id
   #name
+  #type
   #image
 
   /**
@@ -17,6 +18,7 @@ module.exports = class Skill {
     this.#conn = db
     data.id ? this.#id = data.id : ''
     data.name ? this.#name = data.name : ''
+    data.type ? this.#type = data.type : ''
     data.image ? this.#image = data.image : ''
   }
 
@@ -62,9 +64,10 @@ module.exports = class Skill {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET name = ?, image=?`
+    const sql = `INSERT INTO ${this.#table} SET name = ?, type=?, image=?`
     const inserts = [
       this.#name,
+      this.#type,
       this.#image
     ]
     
@@ -78,10 +81,11 @@ module.exports = class Skill {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET name=?, image=? WHERE id=?`
+    const sql = `UPDATE ${this.#table} SET name=?, type=?, image=? WHERE id=?`
     
     const inserts = [
       this.#name,
+      this.#type,
       this.#image,
       this.#id
     ]
@@ -119,6 +123,14 @@ module.exports = class Skill {
 
   set name(name){
     this.#name = name
+  }
+
+  get type(){
+    return this.#type
+  }
+
+  set type(type){
+    this.#type = type
   }
 
   get image(){

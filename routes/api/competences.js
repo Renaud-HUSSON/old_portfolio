@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Skill = require('../../models/Skill')
+const Competence = require('../../models/Competence')
 const Database = require('../../config/db')
 
 const database = new Database()
@@ -8,7 +8,7 @@ const db = database.connect()
 
 //Get all skills
 router.get('/', (_, res) => {
-  const skill = new Skill(db)
+  const skill = new Competence(db)
 
   skill.read_all((err, results) => {
     if(err){
@@ -21,7 +21,7 @@ router.get('/', (_, res) => {
 
 //Reads a single skill
 router.get('/:id', (req, res) => {
-  const skill = new Skill(db)
+  const skill = new Competence(db)
   const id = req.params.id
 
   skill.id = id
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
     return
   }
 
-  const skill = new Skill(db, newSkill)
+  const skill = new Competence(db, newSkill)
 
   skill.create((err) => {
     if(err){
@@ -76,7 +76,7 @@ router.put('/', (req, res) => {
     })
   }
 
-  const skill = new Skill(db, updatedSkill)
+  const skill = new Competence(db, updatedSkill)
 
   skill.update(err => {
     if(err){
@@ -94,7 +94,7 @@ router.put('/', (req, res) => {
 //Deletes a skill
 router.delete('/:id', (req, res) => {
   const id = req.params.id
-  const skill = new Skill(db)
+  const skill = new Competence(db)
 
   skill.id = id
 
