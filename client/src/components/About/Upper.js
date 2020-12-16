@@ -1,9 +1,10 @@
+import {Link} from 'react-router-dom'
 import styled from "styled-components"
 
 const Upper = () => {
   return <StyledUpper>
     <p>Bienvenue sur mon portfolio, je m'appelle Renaud HUSSON, je suis en 1ère année de DUT Informatique à Blagnac et j'apprend la programmation web en autodidacte</p>
-    <button>VOIR MES PROJETS</button>
+    <Link to="/projets"><button>VOIR MES PROJETS</button></Link>
   </StyledUpper>
 }
 
@@ -18,7 +19,7 @@ const StyledUpper = styled.div`
     margin-bottom: 1rem;
   }
 
-  button {
+  a {
     font-size: 1rem;
   }
 

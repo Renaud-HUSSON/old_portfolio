@@ -1,20 +1,38 @@
 import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    background: ${props => props.theme.colors.darkBlue};
-    overflow-x: hidden;
-  }
-
   * {
     margin: 0;
     padding: 0;
     color: ${props => props.theme.colors.white};
     font-family: 'Montserrat';
+    outline: none;
+  }
+
+  body {
+    background: ${props => props.theme.colors.darkBlue};
+    overflow-x: hidden;
   }
 
   .page-content {
     min-height: calc(100vh - ${props => props.theme.navHeight} - ${props => props.theme.footerHeight});
+
+    .content {
+      width: 70vw;
+      margin: auto;
+    }
+  }
+
+  h1, h2 {
+    padding: 1rem 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
   }
 
   a {
@@ -33,9 +51,22 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
 
     &:hover {
-      ${'' /* border: 2px solid ${props => props.theme.colors.darkBlue}; */}
-      background: ${props => props.theme.colors.lightBlue};
-      ${'' /* color: ${props => props.theme.colors.darkBlue}; */}
+      background: ${props => props.theme.colors.white};
+      color: ${props => props.theme.colors.darkBlue};
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    .page-content .content {
+      width: 90vw;
     }
   }
 `

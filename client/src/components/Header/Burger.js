@@ -13,7 +13,6 @@ const Burger = ({setNav}) => {
 }
 
 const StyledBurger = styled.div`
-  width: 3rem;
   height: 100%;
   display: none;
   flex-direction: column;
@@ -21,7 +20,7 @@ const StyledBurger = styled.div`
   cursor: pointer;
   
   div {
-    height: 5px;
+    height: 3px;
     width: 2rem;
     background: ${props => props.theme.colors.white};
     margin: 3px;
