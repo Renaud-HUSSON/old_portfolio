@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import spinalCase from '../../functions/spinalCase'
 
 const Projet = ({name, image, id}) => {
   return <Link to={`/projet/${id}`}>

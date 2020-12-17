@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import useFetchData from "../components/shared/hooks/useFetchData"
 import Loading from "../components/shared/Loading"
+import {motion} from 'framer-motion'
 
 const Projet = () => {
   const id = useParams().id
@@ -11,7 +12,7 @@ const Projet = () => {
   if(!data.loading){
     const projet = data.data
 
-    return <StyledProjet className="content">
+    return <StyledProjet exit=" " className="content">
       <h1>{projet.name}</h1>
       <p>Le lien du site: <a href={projet.link}>{projet.link}</a></p>
       <p>Le code sur github: <a href={projet.github}>{projet.github}</a></p>
@@ -27,7 +28,7 @@ const Projet = () => {
   </div>
 }
 
-const StyledProjet = styled.div`
+const StyledProjet = styled(motion.div)`
 p {
   font-size: 1.2rem;
   

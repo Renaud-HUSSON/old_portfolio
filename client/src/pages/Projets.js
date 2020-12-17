@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import Projet from '../components/Projets/Projet'
 import useFetchData from '../components/shared/hooks/useFetchData'
 import Loading from '../components/shared/Loading'
+import {motion} from 'framer-motion'
 
 const Projets = () => {
   const data = useFetchData('/api/projets')
 
-  return <section className="content">
+  return <motion.section className="content" exit=" ">
     <h1>MES PROJETS</h1>
     <StyledProjets className="projets">
       {
@@ -21,7 +22,7 @@ const Projets = () => {
         :<Loading/>
       }
     </StyledProjets>
-  </section>
+  </motion.section>
 }
 
 const StyledProjets = styled.div`

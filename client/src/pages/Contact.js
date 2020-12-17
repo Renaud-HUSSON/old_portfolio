@@ -1,12 +1,13 @@
 import ContactForm from "../components/Contact/ContactForm"
 import Informations from "../components/Contact/Informations"
+import {motion} from 'framer-motion'
 
 const Contact = () => {
-  return <div className="content">
+  return <motion.div className="content" exit=" ">
     <h1>ME CONTACTER</h1>
     <Informations />
     <ContactForm />
-  </div>
+  </motion.div>
 }
 
 export default Contact

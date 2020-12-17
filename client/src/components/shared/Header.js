@@ -8,8 +8,8 @@ const Header = () => {
   const [nav, setNav] = useState(false)
 
   return <StyledHeader>
-    <Link to="/">RENAUD HUSSON</Link>
-    <Nav nav={nav}/>
+    <Link onClick={() => setNav(false)} to="/">RENAUD HUSSON</Link>
+    <Nav setNav={setNav} nav={nav}/>
     <Burger setNav={setNav}/>
   </StyledHeader>
 }
@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
   padding: 0rem 1rem;
   
   * {
-    font-family: 'Bebas Neue' !important;
+    font-family: 'Bebas Neue';
   }
 `
 
