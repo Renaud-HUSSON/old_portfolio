@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: ${props => props.theme.colors.white};
     font-family: 'Montserrat';
+    box-sizing: border-box;
     outline: none;
   }
 
@@ -41,6 +42,15 @@ const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style-type: none;
+  }
+
+  input, textarea {
+    color: ${props => props.theme.colors.darkBlue};
+    padding: 0rem 1rem;
+  }
+
+  textarea {
+    padding: 1rem;
   }
 
   button {

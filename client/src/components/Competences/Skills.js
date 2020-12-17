@@ -6,7 +6,6 @@ const Skills = () => {
   const data = useFetchData('/api/competences')
 
   if(!data.loading){
-    console.log("?")
     const competences = data.data
     const langages = competences.filter(c => c.type === 'langage')
     const autres = competences.filter(c => c.type !== 'langage')

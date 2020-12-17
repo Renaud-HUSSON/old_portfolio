@@ -48,6 +48,7 @@ router.get('/:id', (req, res) => {
 
 //Creates a message
 router.post('/', (req, res) => {
+  console.log(req.body)
   const newMessage = req.body
 
   if(!(newMessage.username && newMessage.email && newMessage.message)){

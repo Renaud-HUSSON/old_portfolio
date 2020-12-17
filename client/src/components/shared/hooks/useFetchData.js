@@ -16,7 +16,11 @@ const useFetchData = (url, options) => {
     (async () => {
       const data = await fetch(url, options)
       const json = await data.json()
-    
+      
+      if(data.success || data.error){
+        console.log('hey')
+      }
+
       setData({
         data: json,
         loading: false

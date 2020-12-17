@@ -14,7 +14,7 @@ const Projets = () => {
         ?<>
           {
             data.data.map(projet => (
-              <Projet id={projet.id} name={projet.name} image={projet.image}/>
+              <Projet key={projet.id} id={projet.id} name={projet.name} image={projet.image}/>
             ))
           }
         </>
