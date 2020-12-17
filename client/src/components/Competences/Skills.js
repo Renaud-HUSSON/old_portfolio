@@ -38,7 +38,7 @@ const Skills = () => {
   return <Loading />
 }
 
-const StyledSkills = styled.div`
+const StyledSkills = styled.section`
   .langages, .autres {
     display: flex;
     flex-wrap: wrap;

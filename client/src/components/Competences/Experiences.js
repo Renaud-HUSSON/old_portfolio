@@ -1,7 +1,7 @@
 const Experiences = () => {
-  return <div>
+  return <section>
   
-  </div>
+  </section>
 }
 
 export default Experiences

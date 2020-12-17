@@ -8,7 +8,7 @@ const Upper = () => {
   </StyledUpper>
 }
 
-const StyledUpper = styled.div`
+const StyledUpper = styled.section`
   margin: auto;
   align-items: center;
   width: 50vw;

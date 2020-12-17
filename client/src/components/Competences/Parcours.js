@@ -30,7 +30,7 @@ const Parcours = () => {
   return <Loading />
 }
 
-const StyledParcours = styled.div`
+const StyledParcours = styled.section`
   .formation {
     display: flex;
     flex-direction: column;
