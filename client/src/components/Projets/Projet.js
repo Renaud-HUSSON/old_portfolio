@@ -1,9 +1,14 @@
+import { motion } from 'framer-motion'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
+import { slideInFromBottom, slideInFromTop } from '../../utils/animations'
 
 const Projet = ({name, image, id}) => {
+  const bottom = slideInFromBottom(undefined, 0.2/id)
+  const top = slideInFromTop(undefined, 0.2/id);
+  
   return <Link to={`/projet/${id}`}>
-    <StyledProjet>
+    <StyledProjet variants={id % 2 === 0 ? top : bottom} initial="hidden" animate="visible" exit=" ">
       <img src={image} alt={name}/>
       <div className="hover">
         <p>{name}</p>
@@ -12,7 +17,7 @@ const Projet = ({name, image, id}) => {
   </Link>
 }
 
-const StyledProjet = styled.div`
+const StyledProjet = styled(motion.div)`
   position: relative;
 
   img {

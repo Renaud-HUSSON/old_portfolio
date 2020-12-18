@@ -1,23 +1,29 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { slideInFromTop } from "../../utils/animations"
+import MotionLink from "../Motion/MotionLink"
 
 const Nav = ({setNav, nav}) => {
+  const anim = slideInFromTop(0.3)
+  const anim1 = slideInFromTop(0.3, 0.1)
+  const anim2 = slideInFromTop(0.3, 0.2)
+  const anim3 = slideInFromTop(0.3, 0.3)
+  
   return <StyledNav nav={nav}>
     <ul>
-      <Link onClick={() => setNav(false)} to="/"><li>À PROPOS</li></Link>
-      <Link onClick={() => setNav(false)} to="/projets"><li>PROJETS</li></Link>
-      <Link onClick={() => setNav(false)} to="/competences"><li>COMPÉTENCES</li></Link>
-      <Link onClick={() => setNav(false)} to="/contact"><li>ME CONTACTER</li></Link>
+      <MotionLink setNav={setNav} anim={anim} to="/"><li>À PROPOS</li></MotionLink>
+      <MotionLink setNav={setNav} anim={anim1} to="/projets"><li>PROJETS</li></MotionLink>
+      <MotionLink setNav={setNav} anim={anim2} to="/competences"><li>COMPÉTENCES</li></MotionLink>
+      <MotionLink setNav={setNav} anim={anim3} to="/contact"><li>ME CONTACTER</li></MotionLink>
     </ul>
   </StyledNav>
 }
 
 const StyledNav = styled.nav`
   background: ${props => props.theme.colors.darkBlue};
-
   ul {
     display: flex;
-    font-size: 1.6rem;
+    font-size: 2.8vh;
 
     a {
       padding: 1rem;

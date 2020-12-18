@@ -3,11 +3,15 @@ import Projet from '../components/Projets/Projet'
 import useFetchData from '../components/shared/hooks/useFetchData'
 import Loading from '../components/shared/Loading'
 import {motion} from 'framer-motion'
+import { exitBottom, fadeIn } from '../utils/animations'
 
 const Projets = () => {
+  const anim = exitBottom()
+  const fade = fadeIn()
+  
   const data = useFetchData('/api/projets')
 
-  return <motion.section className="content" exit=" ">
+  return <motion.section variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
     <h1>MES PROJETS</h1>
     <StyledProjets className="projets">
       {

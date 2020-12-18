@@ -1,9 +1,13 @@
+import { motion } from "framer-motion"
 import styled from "styled-components"
+import { fadeIn } from "../../utils/animations"
 
 const Lower = () => {
+  const anim = fadeIn(0.7, 0.2)
+  
   return <StyledLower>
     <div className="fixbug"></div>
-    <img className="devices" src={`${process.env.PUBLIC_URL}/images/devices.svg`} alt="devices"/>
+    <motion.img variants={anim} initial="hidden" animate="visible" className="devices" src={`${process.env.PUBLIC_URL}/images/devices.svg`} alt="devices"/>
   </StyledLower>
 }
 

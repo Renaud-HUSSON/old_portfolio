@@ -15,7 +15,7 @@ const Header = () => {
 }
 
 const StyledHeader = styled.header`
-  font-size: 2rem;
+  font-size: 3.2vh;
   height: ${props => props.theme.navHeight};
   display: flex;
   justify-content: space-between;
