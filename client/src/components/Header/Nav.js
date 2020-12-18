@@ -45,14 +45,16 @@ const StyledNav = styled.nav`
     width: 100vw;
     position: absolute;
     top: ${props => props.theme.navHeight};
-    transition: 0.5s ease;
     left: ${props => props.nav ? '0' : '100%'};
     opacity: ${props => props.nav ? 1 : 0};
     z-index: 10;
 
     ul {
+    transition: 0.5s ease;
+
       a {
         transform: translateX(100%);
+        font-size: 4vh;
       }
     }
     
