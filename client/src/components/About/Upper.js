@@ -13,14 +13,15 @@ const StyledUpper = styled.section`
   align-items: center;
   width: 50vw;
   padding-top: 20vh;
+  height: calc(50vh - ${props => props.theme.navHeight});
 
   p {
-    font-size: 1.6rem;
+    font-size: 3vh;
     margin-bottom: 1rem;
   }
 
-  a {
-    font-size: 1rem;
+  a, a button {
+    font-size: 2vh;;
   }
 
   @media screen and (max-width: 768px){
@@ -33,6 +34,10 @@ const StyledUpper = styled.section`
     button {
       font-size: 0.8rem;
     }
+  }
+
+  @media screen and (max-width: 1200px){
+    height: auto;
   }
 `
 

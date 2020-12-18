@@ -12,13 +12,19 @@ export const fadeIn = {
 
 export const slideInFromTop = {
   hidden: {
-    top: -100
+    opacity: 0,
+    y: 100
   },
   visible: {
-    top: 0
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
   },
   exit: {
-    top: -100
+    opacity: 0,
+    y: 100
   }
 }
 
