@@ -2,7 +2,7 @@ import { useContext } from "react"
 import styled from "styled-components"
 import { FlashContext } from "../../../context/Flash"
 
-const SubmitButton = ({url, data, options={}}) => {
+const SubmitButton = ({url, data, setData, options={}}) => {
   const [,setFlash] = useContext(FlashContext)
   
   const sendData = (e) => {
@@ -16,10 +16,23 @@ const SubmitButton = ({url, data, options={}}) => {
     .then(data => data.json())
     .then(json => {
       if(json.success || json.error){
+        if(json.success){
+          //If the submit succeed, reset form inputs
+          const resetData = {}
+  
+          for(let i = 0; i<Object.keys(data).length; i++){
+            resetData[Object.keys(data)[i]] = ""
+          }
+  
+          setData(resetData)
+        }
+
+        //Set flash state to active
         setFlash({
           active: true,
           ...json
         })
+
       }
     })
   }

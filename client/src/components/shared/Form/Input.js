@@ -4,7 +4,7 @@ const Input = ({name, label, setData, data, type="text"}) => {
   const handleClick = (e) => {
     setData({...data, [e.target.name]:e.target.value})
   }
-  
+
   return <StyledInput className="input">
     <label htmlFor={name}>{label}</label><br/>
     <input onChange={handleClick} id={name} name={name} type={type} value={data[name]}/>

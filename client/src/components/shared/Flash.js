@@ -11,9 +11,9 @@ const Flash = () => {
   
   useEffect(() => {
     if(flash.active){
-      const timeout = window.setTimeout(() => {
+      window.setTimeout(() => {
         setFlash({active: false})
-      }, 500000)
+      }, 5000)
     }
   }, [flash, setFlash])
 

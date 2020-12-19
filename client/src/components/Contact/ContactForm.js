@@ -29,6 +29,7 @@ const ContactForm = () => {
         headers: headers
       }}
       data={data}
+      setData={setData}
     />
   </StyledContactForm>
 }
