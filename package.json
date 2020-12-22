@@ -1,29 +1,25 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "My portfolio",
-  "main": "server.js",
-  "proxy": "http://localhost:8082",
+  "description": "This is my portfolio, it presents my skills, which can be langages, framework, librairies or tools that I've used in the past, and that I've a decent level with. It also presents the projetcts that I've done, what technologies I've used, and it provides a way to contact me.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "auth": "nodemon auth.js",
-    "back": "npm run server & npm run auth",
+    "api": "cd api && npm run watch",
+    "auth": "cd auth && npm run watch",
     "client": "cd client && npm start",
-    "dev": "npm run server & npm run auth & (cd client && npm start)",
-    "build": "cd client && npm run build"
+    "dev": "npm run api & npm run auth & npm run client"
   },
-  "author": "Renaud HUSSON",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renaud-HUSSON/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "framer-motion": "^3.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "mysql": "^2.18.1"
+  "bugs": {
+    "url": "https://github.com/Renaud-HUSSON/portfolio/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  }
+  "homepage": "https://github.com/Renaud-HUSSON/portfolio#readme"
 }
