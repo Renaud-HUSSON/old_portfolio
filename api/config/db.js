@@ -6,16 +6,18 @@ class Database {
   #username = process.env.DB_USERNAME
   #password = process.env.DB_PASSWORD
   #name = process.env.DB_NAME
+  #port = process.env.DB_PORT
   
   #conn
 
   constructor(){
     //Create the connection to the database
     this.#conn = mysql.createConnection({
-      database: this.#name,
-      user: this.#username,
-      host: this.#host,
-      password: this.#password,
+      database: this.#name || 'portfolio',
+      user: this.#username || 'root',
+      host: this.#host || 'db',
+      password: this.#password || 'root',
+      port: this.#port || '3306'
     })
   }
 
