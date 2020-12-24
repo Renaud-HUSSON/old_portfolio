@@ -10,7 +10,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 //Projects API Routes
-app.use('/images', express.static('./images'));
 app.use('/api/projets', require('./routes/api/projets'))
 app.use('/api/messages', require('./routes/api/messages'))
 app.use('/api/competences', require('./routes/api/competences'))

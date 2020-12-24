@@ -63,6 +63,15 @@ services:
       - 8082:8082
     restart: always
     command: npm start
+  images:
+    container_name: images
+    image: images
+    build:
+      context: ./images
+    ports:
+      - 8083:8083
+    restart: always
+    command: npm start
 volumes:
   db-data:
     
