@@ -15,7 +15,7 @@ const Header = () => {
 }
 
 const StyledHeader = styled.header`
-  font-size: 3.2vh;
+  font-size: clamp(16px, 3.2vh, 30px);
   height: ${props => props.theme.navHeight};
   display: flex;
   justify-content: space-between;
@@ -24,6 +24,10 @@ const StyledHeader = styled.header`
   
   * {
     font-family: 'Bebas Neue';
+  }
+
+  @media screen and (max-height: 500px){
+    height: 40px;
   }
 `
 

@@ -19,8 +19,8 @@ const Projet = () => {
     return <StyledProjet variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
       <motion.div variants={slideInFromLeft()} initial="hidden" animate="visible">
         <h1>{projet.name}</h1>
-        <p>Le lien du site: <a href={projet.link}>{projet.link}</a></p>
-        <p>Le code sur github: <a href={projet.github}>{projet.github}</a></p>
+        <p>Le lien du site: <a target="_blank" rel="noreferrer" href={projet.link}>{projet.link}</a></p>
+        <p>Le code sur github: <a target="_blank" rel="noreferrer" href={projet.github}>{projet.github}</a></p>
       </motion.div>
       <motion.div variants={slideInFromLeft(undefined, 0.15)} initial="hidden" animate="visible" className="">
         <h2>PRÉSENTATION</h2>

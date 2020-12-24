@@ -9,7 +9,8 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
-      - db-data:/var/lib/mysql/
+      - ./database/data:/var/lib/mysql/
+      - ./database/db.cnf:/etc/mysql/conf.d/custom.cnf
       - ./database/db.sql:/sql
     ports:
       - 3306:3306
@@ -40,6 +41,9 @@ services:
     ports:
       - 8080:80
     restart: always
+    command: npm start
+    volumes: 
+      - ./client/src:/frontend/src
   api:
     container_name: api
     image: api
@@ -51,7 +55,9 @@ services:
     ports:
       - 8081:8081
     restart: always
-    command: npm start
+    command: npm run watch
+    volumes:
+    - ./api:/api
   auth:
     container_name: auth
     image: auth
@@ -62,7 +68,9 @@ services:
     ports: 
       - 8082:8082
     restart: always
-    command: npm start
+    command: npm run watch
+    volumes:
+      - ./auth:/auth
   images:
     container_name: images
     image: images
@@ -71,7 +79,7 @@ services:
     ports:
       - 8083:8083
     restart: always
-    command: npm start
-volumes:
-  db-data:
+    command: npm run watch
+    volumes:
+      - ./images/:/images
     

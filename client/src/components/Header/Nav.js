@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { slideInFromTop } from "../../utils/animations"
 import MotionLink from "../Motion/MotionLink"
@@ -48,9 +47,9 @@ const StyledNav = styled.nav`
     left: ${props => props.nav ? '0' : '100%'};
     opacity: ${props => props.nav ? 1 : 0};
     z-index: 10;
+    transition: 0.3s ease;
 
     ul {
-    transition: 0.5s ease;
 
       a {
         transform: translateX(100%);
