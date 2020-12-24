@@ -8,7 +8,9 @@ const bcrypt = require('bcrypt')
 const database = new Database()
 const db = database.connect()
 
+//Creates route for login
 router.post('/', (req, res) => {
+  console.log(req.body)
   const userCredentials = req.body
 
   if(!(userCredentials.username && userCredentials.password)){
@@ -19,6 +21,7 @@ router.post('/', (req, res) => {
 
   const user = new User(db, userCredentials)
   
+  //Tries reads user information to verify credentials are correct 
   user.read_single(async (err, results) => {
     if(err){
       return res.status(400).send({

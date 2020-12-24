@@ -1,9 +1,11 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
+import {Redirect} from 'react-router-dom'
 import styled from "styled-components"
 import { FlashContext } from "../../../context/Flash"
 
-const SubmitButton = ({url, data, setData, options={}}) => {
+const SubmitButton = ({url, data, setData, options={}, redirectPath=window.location.pathname}) => {
   const [,setFlash] = useContext(FlashContext)
+  const [redirect, setRedirect] = useState(false)
   
   const sendData = (e) => {
     e.preventDefault()
@@ -25,6 +27,7 @@ const SubmitButton = ({url, data, setData, options={}}) => {
           }
   
           setData(resetData)
+          setRedirect(true)
         }
 
         //Set flash state to active
@@ -32,13 +35,17 @@ const SubmitButton = ({url, data, setData, options={}}) => {
           active: true,
           ...json
         })
-
       }
     })
   }
 
   return <StyledButton>
     <button onClick={sendData}>Envoyer</button>
+    {
+      redirect
+      ? <Redirect to={redirectPath} />
+      : <></>
+    }
   </StyledButton>
 }
 

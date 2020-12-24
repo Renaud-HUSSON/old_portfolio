@@ -5,6 +5,7 @@ import Contact from "./pages/Contact"
 import Projet from "./pages/Projet"
 import Projets from "./pages/Projets"
 import {AnimatePresence} from 'framer-motion'
+import Login from "./pages/Login"
 
 const Routes = () => {
   const location = useLocation()
@@ -16,6 +17,7 @@ const Routes = () => {
       <Route path="/projets" component={Projets} exact/>
       <Route path="/projet/:id" component={Projet} exact/>
       <Route path="/contact" component={Contact} exact/>
+      <Route path="/login" component={Login} exact/>
     </Switch>
   </AnimatePresence> 
 }
