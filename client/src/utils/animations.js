@@ -101,14 +101,17 @@ export const slideInFromRight = (duration=0.5, delay=0, value=100) => {
       x: 0,
       transition: {
         duration: duration,
-        delay: delay
+        delay: delay,
+        ease: "easeInOut"
       }
     },
     exit: {
       opacity: 0,
       x: value,
       transition: {
-        when: 'afterChildren'
+        when: 'afterChildren',
+        ease: "easeInOut",
+        duration: duration
       }
     }
   }

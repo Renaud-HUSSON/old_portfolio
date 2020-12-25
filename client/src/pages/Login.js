@@ -19,8 +19,6 @@ const Login = () => {
     headers: headers
   }
 
-  console.log(data)
-  
   return <StyledLogin exit=" ">
     <Form>
       <Input label="Nom d'utilisateur:" data={data} name="username" setData={setData} />

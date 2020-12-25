@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import {Redirect} from 'react-router-dom'
 
 /**
  * Fetches data from an url
@@ -16,11 +17,11 @@ const useFetchData = (url, options) => {
     (async () => {
       const data = await fetch(url, options)
       const json = await data.json()
-      
-      if(data.success || data.error){
-        console.log('hey')
-      }
 
+      if(json.redirect){
+        return <Redirect to={json.redirect} />
+      }
+      
       setData({
         data: json,
         loading: false

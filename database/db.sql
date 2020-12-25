@@ -36,6 +36,8 @@ CREATE TABLE users(
   id int NOT NULL AUTO_INCREMENT,
   username varchar(30) NOT NULL,
   password varchar(512) NOT NULL,
+  role varchar(15) NOT NULL,
+  token varchar(512),
   PRIMARY KEY(id)
 );
 
@@ -88,4 +90,10 @@ INSERT INTO projets (name, image, description, tech, link, github) VALUES(
   "Javascript, React, NodeJS, SQL, MySql",
   "",
   "https://github.com/Renaud-HUSSON/portfolio"
+);
+
+INSERT INTO users (username, password, role) VALUES(
+  "renaud", 
+  "$2a$10$.b.arZ97mg5dFGmfuE73UuxnApp.DZT4BAzbEwS4kBsRAlyqs6lv6",
+  "admin"
 );

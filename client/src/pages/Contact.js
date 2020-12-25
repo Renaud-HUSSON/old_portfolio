@@ -1,13 +1,12 @@
 import ContactForm from "../components/Contact/ContactForm"
 import Informations from "../components/Contact/Informations"
 import {motion} from 'framer-motion'
-import { exitRight, scaleIn, slideInFromRight } from "../utils/animations"
+import { slideInFromRight } from "../utils/animations"
 
 const Contact = () => {
-  const scale = scaleIn()
-  const right = slideInFromRight()
+  const right = slideInFromRight(0.625, undefined, window.innerWidth)
   
-  return <motion.div className="content" variants={scale} initial={{...scale.hidden, ...right.hidden}} animate={{...scale.visible, ...right.visible}} exit={exitRight().exit}>
+  return <motion.div className="content" variants={right} initial="hidden" animate="visible" exit="exit">
     <h1>ME CONTACTER</h1>
     <Informations />
     <ContactForm />

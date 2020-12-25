@@ -37,6 +37,7 @@ const SubmitButton = ({url, data, setData, options={}, redirectPath=window.locat
         })
       }
     })
+    .catch(e => console.log(e))
   }
 
   return <StyledButton>

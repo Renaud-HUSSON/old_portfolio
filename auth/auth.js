@@ -7,8 +7,12 @@ const app = express()
 //Body parser middleware
 app.use(express.json())
 
+//Cookie parser middleware
+app.use(require('cookie-parser')())
+
 //Route for authentication
 app.use('/auth/login', require('./routes/login'))
+app.use('/auth/token', require('./routes/token'))
 
 //Use defined port in env variables or port 8082
 const PORT = process.env.AUTH_PORT || 8082 

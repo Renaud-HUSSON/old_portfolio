@@ -3,14 +3,13 @@ const router = express.Router()
 const User = require('../models/User')
 const Database = require('../config/db')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 const database = new Database()
 const db = database.connect()
 
 //Creates route for login
 router.post('/', (req, res) => {
-  console.log(req.body)
   const userCredentials = req.body
 
   if(!(userCredentials.username && userCredentials.password)){
@@ -20,7 +19,7 @@ router.post('/', (req, res) => {
   }
 
   const user = new User(db, userCredentials)
-  
+
   //Tries reads user information to verify credentials are correct 
   user.read_single(async (err, results) => {
     if(err){
@@ -35,6 +34,7 @@ router.post('/', (req, res) => {
       })
     }
 
+    //Verify that the password matches the one hashed
     const match = await bcrypt.compare(userCredentials.password, results[0].password)
 
     if(!match){
@@ -42,8 +42,32 @@ router.post('/', (req, res) => {
         error: 'Le mot de passe est incorrect'
       })
     }
+    
+    //Creates the refresh token
+    const refresh_token = jwt.sign({
+      id: results[0].id,
+      username: results[0].username,
+      role: results[0].role
+    }, process.env.REFRESH_TOKEN_SECRET, {
+      expiresIn: '30days'
+    })
 
-    res.send('Logged in !')
+    //Creates a user with the new refresh token
+    const updatedUser = new User(db, {
+      ...results[0],
+      token: refresh_token
+    })
+
+    //Updates the user in the database with the new refresh token
+    updatedUser.update((err) => {
+      if(err){
+        return res.status(500).send()
+      }
+
+      res.cookie("refresh_token", refresh_token)
+      
+      res.redirect('/auth/token')
+    })
   })
 })
 
