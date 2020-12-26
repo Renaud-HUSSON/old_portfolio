@@ -11,12 +11,15 @@ export const LoggedProvider = ({children}) => {
       const isLogged = await fetch('/auth/logged')
       const json = await isLogged.json()
 
+      //Generates an access token if the user is connected
+      if(json){
+        fetch('/auth/token')
+      }
+
       setLogged(json)
     })()
   }, [setLogged])
 
-  console.log(logged)
-  
   return <LoggedContext.Provider value={[logged, setLogged]}>
     {children}
   </LoggedContext.Provider>
