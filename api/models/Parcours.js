@@ -40,7 +40,7 @@ module.exports = class Parcours {
   read_all(callback){
     const sql = `SELECT * FROM ${this.#table} ORDER BY id DESC`
 
-    return this.#conn.query(sql, callback)
+    this.#conn.query(sql, callback)
   }
 
   /**
@@ -52,7 +52,7 @@ module.exports = class Parcours {
   read_single(callback){
     const sql = `SELECT * FROM ${this.#table} WHERE id=${this.#id}`
 
-    return this.#conn.query(sql, callback)
+    this.#conn.query(sql, callback)
   }
 
   /**

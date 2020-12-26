@@ -25,6 +25,18 @@ module.exports = class User {
   }
 
   /**
+   * Reads all users
+   * 
+   * @param {*} callback 
+   * 
+   */
+  read_all(callback){
+    const sql = `SELECT * FROM ${this.#table}`
+
+    this.#conn.query(sql, callback)
+  }
+
+  /**
    * Reads a single user based on its id or refresh token
    * 
    * @param {*} callback 
@@ -35,6 +47,24 @@ module.exports = class User {
     const sql = `SELECT * FROM ${this.#table} WHERE ${field === 'username' ? `username = "${this.#username}"` : field === 'token' ? `token = "${this.#token}"` : '' }`
 
     this.#conn.query(sql, callback)
+  }
+
+  /**
+   * Creates a user in the database
+   * 
+   * @param {*} callback 
+   * 
+   */
+  create(callback){
+    const sql = `INSERT INTO ${this.#table} SET username = ?, password = ?, role = ?`
+
+    const inserts = [
+      this.#username,
+      this.#password,
+      this.#role
+    ]
+
+    this.#conn.query(sql, inserts, callback)
   }
 
   /**
@@ -51,6 +81,22 @@ module.exports = class User {
       this.#password,
       this.#role,
       this.#token,
+      this.#id
+    ]
+
+    this.#conn.query(sql, inserts, callback)
+  }
+
+  /**
+   * Deletes a user in the database
+   * 
+   * @param {*} callback 
+   * 
+   */
+  delete(callback){
+    const sql = `DELETE FROM ${this.#table} WHERE id = ?`
+
+    const inserts = [
       this.#id
     ]
 

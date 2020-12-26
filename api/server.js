@@ -9,7 +9,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-//Projects API Routes
+//Custom middlewares
+app.use(require('../api/middlewares/verifyPerms'))
+
+//API Routes
 app.use('/api/projets', require('./routes/api/projets'))
 app.use('/api/messages', require('./routes/api/messages'))
 app.use('/api/competences', require('./routes/api/competences'))

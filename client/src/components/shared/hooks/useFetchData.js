@@ -15,7 +15,13 @@ const useFetchData = (url, options) => {
   
   useEffect(() => {
     (async () => {
-      const data = await fetch(url, options)
+      const headers = new Headers()
+      headers.append('Authorization', `Bearer ${process.env.REACT_APP_PUBLIC_ACCESS_TOKEN}`)
+
+      const data = await fetch(url, {
+        headers: headers,
+        ...options
+      })
       const json = await data.json()
 
       if(json.redirect){
