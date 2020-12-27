@@ -111,7 +111,8 @@ export const slideInFromRight = (duration=0.5, delay=0, value=100) => {
       transition: {
         when: 'afterChildren',
         ease: "easeInOut",
-        duration: duration
+        duration: duration,
+        delay: window.innerWidth <= 768 ? 0.125 : 0
       }
     }
   }
@@ -125,7 +126,8 @@ export const exitLeft = (duration=0.5) => {
       
       transition: {
         duration: duration,
-        ease: "easeInOut"
+        ease: "easeInOut",
+        delay: window.innerWidth <= 768 ? 0.125 : 0
       }
     }
   }
@@ -139,7 +141,8 @@ export const exitRight = (duration=0.5) => {
       
       transition: {
         duration: duration,
-        ease: "easeInOut"
+        ease: "easeInOut",
+        delay: window.innerWidth <= 768 ? 0.125 : 0
       }
     }
   }
@@ -153,7 +156,8 @@ export const exitBottom = (duration=0.5) => {
       
       transition: {
         duration: duration,
-        ease: "easeInOut"
+        ease: "easeInOut",
+        delay: window.innerWidth <= 768 ? 0.125 : 0
       }
     }
   }
@@ -167,7 +171,8 @@ export const exitTop = (duration=0.5) => {
       
       transition: {
         duration: duration,
-        ease: "easeInOut"
+        ease: "easeInOut",
+        delay: window.innerWidth <= 768 ? 0.125 : 0
       }
     }
   }

@@ -106,8 +106,12 @@ INSERT INTO parcours (date, name) VALUES ("2020-2022", "DUT Informatique à l'IU
 INSERT INTO projets (name, image, description, tech, link, github) VALUES(
   "Astroshoot",
   "/images/projets/astroshoot.png",
-  "Astroshoot est un site que j'ai créé pour un ami passionné d'astronomie. Il répertorie toutes ses images par catégories, et fournit plein de détails pour chacune d'entre elles. Il peut ajouter, mettre à jour, supprimer des images et leurs informations, des catégories, le matériel qu'il utilise, il peut envoyer des mails aux utilisateurs inscrits à la newsletter, et bien plus depuis une interface d'administration.
-   J'ai conçu le frontend avec le framework Javascript React, et le préprocesseur CSS SASS. Ce frontend communique avec la base de donnée MySQL par le biais d'une API REST que j'ai créé en PHP.",
+  "Astroshoot est un site que j'ai créé pour un ami passionné d'astronomie. Il répertorie toutes ses images par 
+  catégories, et fournit plein de détails pour chacune d'entre elles. Il peut ajouter, mettre à jour, supprimer des 
+  images et leurs informations, des catégories, le matériel qu'il utilise, il peut envoyer des mails aux utilisateurs 
+  inscrits à la newsletter, et bien plus depuis une interface d'administration. J'ai conçu le frontend avec le 
+  framework Javascript React, et le préprocesseur CSS SASS. Ce frontend communique avec la base de données MySQL en
+  passant par une API REST que j'ai créé en PHP.",
   "Javascript, PHP, Sass, SQL, React, MySql",
   "https://astrophoto-amateur.fr",
   "https://github.com/Renaud-HUSSON/astrophoto-by-astroshoot"
@@ -115,9 +119,22 @@ INSERT INTO projets (name, image, description, tech, link, github) VALUES(
 INSERT INTO projets (name, image, description, tech, link, github) VALUES(
   "Portfolio",
   "/images/projets/portfolio.png",
-  "(Cette présentation présente mon vrai portfolio, que j'ai réalisé juste après celui ci. Celui ci est le même mais réalisée avec seulement du HTML et du CSS, avec le même style et le même contenu que celui actuel)
-   Mon portfolio me permet de présenter mes compétences, mes projets et mon parcours. Je peux ajouter des projets, des compétences, et lire les messages que l'on m'a envoyé depuis une interface d'administration. Le frontend a été conçu avec le framework Javascript React, et pour le style j'ai utilisé du CSS in JS avec la librairie Styled Components. Ce frontend communique avec la base de donnée MySQL par le biais d'une API REST réalisée avec NodeJs et le framework Express. Ce backend est divisé en 2 applications Express, une qui gère tout le système d'authentification, d'acess token et de refresh token avec les JWT (Json Web Token), et l'autre application s'occupe de l'api qui permet de créer, récupérer, modifier et supprimer (CRUD) les projets, les compétences, et de lire les potentiels messages que je pourrais recevoir. Les 2 applications communiquent ensemble pour vérifier que la personne faisant des reqêtes à l'API ait les permissions.",
-  "Javascript, React, NodeJS, SQL, MySql",
+  "Mon portfolio me permet de présenter mes compétences, mes projets et mon parcours. Le frontend a été conçu avec le 
+  framework Javascript React, et pour le style j'ai utilisé du CSS in JS avec la librairie Styled Components. 
+  Ce frontend communique avec une base de données MySQL en passant par une API REST réalisée avec NodeJs et le framework Express. 
+  Une autre application express s'occupe de l'authentification, qui permet de donner l'autorisation à accéder
+  à certaines ressources, comme les endpoints de l'API qui permettent d'ajouter, supprimer ou bien mettre à jours des
+  projets, compétences etc... ou bien la section administration. Ces permissions sont définit dans ma base de donnée, 
+  dans des tables qui stockent les données suivantes: les endpoints, les methodes HTTP et les différent roles. 
+  Des JWT sont utilisés pour garder l'utilisateur authentifié (avec un refresh token), et un access token de très courte 
+  durée qui est fournit lorsqu'on a un refresh token pour l'accès aux différentes ressources. Le tout est découpé en
+  plusieurs containers docker, chacun réalisant une action précise: Nginx pour pouvoir reverse proxy vers mes différents
+  services, mon frontend qui est l'application React, mon api, mon service d'authentification, ma base de données MySQL
+  et une autre application express me servant de CDN pour mes images. Ce site est donc plus qu'un portfolio. Il me
+  servira, dans les années à venir, à déployer de futures applications qui me seraient utiles, et dont je pourrais 
+  restreindre l'accès à moi même ou bien les rendre publiques, et tout ça très facilement.
+  ",
+  "Javascript, React, NodeJS, Express, SQL, MySql, Docker, Nginx",
   "",
   "https://github.com/Renaud-HUSSON/portfolio"
 );
