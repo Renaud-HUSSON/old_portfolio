@@ -1,3 +1,8 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /api/
+Disallow: /auth/
+Disallow: /images/
+Disallow: /login
+
+Sitemap: https://renaudhusson.fr/sitemap.xml

@@ -4,6 +4,7 @@ import useFetchData from "../components/shared/hooks/useFetchData"
 import Loading from "../components/shared/Loading"
 import {motion} from 'framer-motion'
 import { exitTop, fadeIn, slideInFromLeft } from "../utils/animations"
+import {Helmet} from 'react-helmet-async'
 
 const Projet = () => {
   const anim = exitTop()
@@ -17,6 +18,10 @@ const Projet = () => {
     const projet = data.data
 
     return <StyledProjet variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
+      <Helmet>
+        <title>Renaud HUSSON | {projet.name}</title>
+        <meta name="description" content={`Cette page présente le projet suivant: ${projet.name}, en présentant à quoi il sert et avec quels technologies je l'ai créé`}/>
+      </Helmet>
       <motion.div variants={slideInFromLeft()} initial="hidden" animate="visible">
         <h1>{projet.name}</h1>
         <p>Le lien du site: <a target="_blank" rel="noreferrer" href={projet.link}>{projet.link}</a></p>

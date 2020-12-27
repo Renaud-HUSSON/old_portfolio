@@ -4,6 +4,7 @@ import useFetchData from '../components/shared/hooks/useFetchData'
 import Loading from '../components/shared/Loading'
 import {motion} from 'framer-motion'
 import { exitBottom, fadeIn } from '../utils/animations'
+import {Helmet} from 'react-helmet-async'
 
 const Projets = () => {
   const anim = exitBottom()
@@ -12,6 +13,10 @@ const Projets = () => {
   const data = useFetchData('/api/projets')
 
   return <motion.section variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
+    <Helmet>
+      <title>Renaud HUSSON | Projets</title>
+      <meta name="description" content="Cette page présente les différents projets que j'ai réalisé"/>
+    </Helmet>
     <h1>MES PROJETS</h1>
     <StyledProjets className="projets">
       {

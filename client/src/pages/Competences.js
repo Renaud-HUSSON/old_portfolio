@@ -4,6 +4,7 @@ import Parcours from "../components/Competences/Parcours"
 import Skills from "../components/Competences/Skills"
 import {motion} from 'framer-motion'
 import { exitLeft, fadeIn, slideInFromTop } from "../utils/animations"
+import {Helmet} from 'react-helmet-async'
 
 const Competences = () => {
   const fade = fadeIn()
@@ -11,6 +12,10 @@ const Competences = () => {
   const left = exitLeft()
   
   return <StyledCompetences className="content" variants={left} initial={{...fade.hidden, ...top.hidden}} animate={{...fade.visible, ...top.visible}} exit="exit">
+    <Helmet>
+      <title>Renaud HUSSON | Mes compétences</title>
+      <meta name="description" content="Cette partie de mon portfolio présente mes compétences, qui sont certaines technologies du développement web que je maitrise"/>
+    </Helmet>
     <motion.div variants={slideInFromTop(undefined, undefined, 50)} initial="hidden" animate="visible">
       <h1>COMPÉTENCES</h1>
       <Skills />
