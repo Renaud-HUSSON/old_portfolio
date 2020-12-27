@@ -17,12 +17,9 @@ router.post('/', (req, res) => {
     }
 
     if(results.length === 0){
-      console.log('existe po')
       return res.status(404).send(false)
     }
     
-    console.log(`results: ${results}`)
-
     if(body.role !== 'admin' && results[0].role !== body.role){
       return res.status(403).send(false)
     }

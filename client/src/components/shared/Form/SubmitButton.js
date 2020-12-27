@@ -9,6 +9,15 @@ const SubmitButton = ({url, data, setData, options={}, redirectPath=window.locat
   
   const sendData = (e) => {
     e.preventDefault()
+
+    if(options.headers === undefined) {
+      options.headers = new Headers()
+    }
+
+    if(!options.headers.has('Authorization')){
+      options.headers.append('Authorization', `Bearer ${process.env.REACT_APP_PUBLIC_ACCESS_TOKEN}`)
+    }
+
     const fetchOptions = {
       body: JSON.stringify(data),
       ...options

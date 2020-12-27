@@ -43,14 +43,11 @@ module.exports = class Perms {
    */
   read_single(callback){
     const sql = `SELECT * FROM ${this.#table}, endpoints 
-                 WHERE endpoints.id = ${this.#table}.endpoint AND endpoints.chemin = ? AND method = ?`
+                 WHERE endpoints.id = ${this.#table}.endpoint 
+                 AND "${this.#endpoint}" LIKE concat(endpoints.chemin, '%') 
+                 AND method = "${this.#method}"`
 
-    const inserts = [
-      this.#endpoint,
-      this.#method
-    ]
-
-    this.#conn.query(sql, inserts, callback)
+    this.#conn.query(sql, callback)
   }
 
   /**
