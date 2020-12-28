@@ -1,11 +1,19 @@
 import Nav from "../Header/Nav"
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Burger from "../Header/Burger"
 
 const Header = () => {
   const [nav, setNav] = useState(false)
+
+  useEffect(() => {
+    if(nav){
+      document.body.setAttribute('noscroll', '')
+    }else{
+      document.body.removeAttribute('noscroll')
+    }
+  }, [nav])
 
   return <StyledHeader>
     <Link onClick={() => setNav(false)} to="/">RENAUD HUSSON</Link>

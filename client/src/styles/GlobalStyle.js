@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  body[noscroll]{
+    height: 100vh;
+    overflow: hidden;
+  }
+
   .page-content {
     position: relative;
     min-height: calc(100vh - ${props => props.theme.navHeight} - ${props => props.theme.footerHeight});

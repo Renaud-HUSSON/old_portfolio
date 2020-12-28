@@ -124,10 +124,10 @@ INSERT INTO projets (name, image, description, tech, link, github) VALUES(
   Ce frontend communique avec une base de données MySQL en passant par une API REST réalisée avec NodeJs et le framework Express. 
   Une autre application express s'occupe de l'authentification, qui permet de donner l'autorisation à accéder
   à certaines ressources, comme les endpoints de l'API qui permettent d'ajouter, supprimer ou bien mettre à jours des
-  projets, compétences etc... ou bien la section administration. Ces permissions sont définit dans ma base de donnée, 
-  dans des tables qui stockent les données suivantes: les endpoints, les methodes HTTP et les différent roles. 
+  projets, compétences etc... ou bien la section administration. Ces permissions sont définies dans ma base de données, 
+  dans des tables qui stockent les données suivantes: les endpoints, les methodes HTTP et les différents rôles. 
   Des JWT sont utilisés pour garder l'utilisateur authentifié (avec un refresh token), et un access token de très courte 
-  durée qui est fournit lorsqu'on a un refresh token pour l'accès aux différentes ressources. Le tout est découpé en
+  durée qui est fourni lorsqu'on a un refresh token pour l'accès aux différentes ressources. Le tout est découpé en
   plusieurs containers docker, chacun réalisant une action précise: Nginx pour pouvoir reverse proxy vers mes différents
   services, mon frontend qui est l'application React, mon api, mon service d'authentification, ma base de données MySQL
   et une autre application express me servant de CDN pour mes images. Ce site est donc plus qu'un portfolio. Il me
