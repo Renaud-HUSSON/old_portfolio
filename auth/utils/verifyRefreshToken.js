@@ -12,6 +12,8 @@ const jwt = require('jsonwebtoken')
  * @param {Request} req - Request
  * 
  * @returns an object containing if refresh token is verified, and its datas if it is
+ *          - exists: boolean
+ *          - content: object
  * 
  */
 const verifyRefreshToken = (req) => {

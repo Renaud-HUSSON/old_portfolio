@@ -11,7 +11,7 @@ const About = () => {
   
   return <StyledAbout variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" >
   <Helmet>
-    <title>Renaud HUSSON | À propos</title>
+    <title>Renaud HUSSON</title>
     <meta name="description" content="Je m'appelle Renaud HUSSON, et voici mon portfolio qui présente mes compétences et mes projets dans le développement web"/>
   </Helmet>
     <Upper />

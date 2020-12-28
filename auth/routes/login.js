@@ -61,7 +61,9 @@ router.post('/', (req, res) => {
     //Updates the user in the database with the new refresh token
     updatedUser.update((err) => {
       if(err){
-        return res.status(500).send()
+        return res.status(500).send({
+          error: `Une erreur est survenue lors de l'authentification: ${err}`
+        })
       }
 
       res.cookie("refresh_token", refresh_token)

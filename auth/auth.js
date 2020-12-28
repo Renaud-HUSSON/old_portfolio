@@ -13,6 +13,7 @@ app.use(require('cookie-parser')())
 
 //Route for authentication
 app.use('/auth/login', require('./routes/login'))
+app.use('/auth/logout', require('./routes/logout'))
 app.use('/auth/token', require('./routes/token'))
 app.use('/auth/logged', require('./routes/logged'))
 //Permissions route

@@ -74,11 +74,10 @@ module.exports = class User {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET username = ?, password = ?, role = ?, token = ? WHERE id = ?`
-
+    const sql = `UPDATE ${this.#table} SET username = ?, ${this.#password ? `password = "${this.#password}",` : ''} role = ?, token = ? WHERE id = ?`
+    
     const inserts = [
       this.#username,
-      this.#password,
       this.#role,
       this.#token,
       this.#id

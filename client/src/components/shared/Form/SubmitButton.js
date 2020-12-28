@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom'
 import styled from "styled-components"
 import { FlashContext } from "../../../context/Flash"
 
-const SubmitButton = ({url, data, setData, options={}, redirectPath=window.location.pathname}) => {
+const SubmitButton = ({url, data, setData, options={}, redirectPath=window.location.pathname, callback=() => {}}) => {
   const [,setFlash] = useContext(FlashContext)
   const [redirect, setRedirect] = useState(false)
   
@@ -34,7 +34,8 @@ const SubmitButton = ({url, data, setData, options={}, redirectPath=window.locat
           for(let i = 0; i<Object.keys(data).length; i++){
             resetData[Object.keys(data)[i]] = ""
           }
-  
+          
+          callback()
           setData(resetData)
           setRedirect(true)
         }

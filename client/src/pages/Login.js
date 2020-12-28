@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styled from 'styled-components'
 import Form from '../components/shared/Form/Form'
 import Input from '../components/shared/Form/Input'
 import SubmitButton from '../components/shared/Form/SubmitButton'
+import { LoggedContext } from '../context/Logged'
 
 const Login = () => {
+  const [, setLogged] = useContext(LoggedContext)
+  
   const [data, setData] = useState({
     username: '',
     password: ''
@@ -19,11 +22,15 @@ const Login = () => {
     headers: headers
   }
 
+  const submitCallback = () => {
+    setLogged(true)
+  }
+
   return <StyledLogin exit=" ">
     <Form>
       <Input label="Nom d'utilisateur:" data={data} name="username" setData={setData} />
       <Input type="password" label="Mot de passe:" data={data} name="password" setData={setData} />
-      <SubmitButton url="/auth/login" options={submitOptions} data={data} setData={setData} redirect="/"/>
+      <SubmitButton callback={submitCallback} url="/auth/login" options={submitOptions} data={data} setData={setData} redirect="/"/>
     </Form>
   </StyledLogin>
 }

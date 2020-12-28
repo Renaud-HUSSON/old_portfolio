@@ -1,19 +1,33 @@
+import { useCallback, useContext } from "react"
 import styled from "styled-components"
-import { slideInFromTop } from "../../utils/animations"
 import MotionLink from "../Motion/MotionLink"
+import {LoggedContext} from '../../context/Logged'
+import {FlashContext} from '../../context/Flash'
 
 const Nav = ({setNav, nav}) => {
-  const anim = slideInFromTop(0.3)
-  const anim1 = slideInFromTop(0.3, 0.1)
-  const anim2 = slideInFromTop(0.3, 0.2)
-  const anim3 = slideInFromTop(0.3, 0.3)
+  
+  const [logged, setLogged] = useContext(LoggedContext)
+  const [, setFlash] = useContext(FlashContext)
+  
+  const logout = useCallback(async () => {
+    const data = await fetch('/auth/logout')
+    const json = await data.json()
+
+    setFlash({active: true, ...json})
+    setLogged(false)
+  }, [setFlash, setLogged])
   
   return <StyledNav nav={nav}>
     <ul>
-      <MotionLink setNav={setNav} anim={anim} to="/"><li>À PROPOS</li></MotionLink>
-      <MotionLink setNav={setNav} anim={anim1} to="/projets"><li>PROJETS</li></MotionLink>
-      <MotionLink setNav={setNav} anim={anim2} to="/competences"><li>COMPÉTENCES</li></MotionLink>
-      <MotionLink setNav={setNav} anim={anim3} to="/contact"><li>ME CONTACTER</li></MotionLink>
+      <MotionLink setNav={setNav} to="/"><li>À PROPOS</li></MotionLink>
+      <MotionLink setNav={setNav} to="/projets"><li>PROJETS</li></MotionLink>
+      <MotionLink setNav={setNav} to="/competences"><li>COMPÉTENCES</li></MotionLink>
+      <MotionLink setNav={setNav} to="/contact"><li>ME CONTACTER</li></MotionLink>
+      {
+        logged
+        ? <button className="logout-button" onClick={logout}><li>Se déconnecter</li></button>
+        : <></>
+      }
     </ul>
   </StyledNav>
 }
@@ -22,10 +36,24 @@ const StyledNav = styled.nav`
   background: ${props => props.theme.colors.darkBlue};
   ul {
     display: flex;
-    font-size: 2.8vh;
+    > * {
+      font-size: 2.8vh;
+    }
 
     a {
       padding: 1rem;
+    }
+
+    .logout-button {
+      border: none;
+
+      &:hover {
+        background: ${props => props.theme.colors.darkBlue}
+      }
+
+      li {
+        text-align: left;
+      }
     }
   }
 
@@ -50,8 +78,7 @@ const StyledNav = styled.nav`
     transition: 0.3s ease;
 
     ul {
-
-      a {
+      a, .logout-button {
         transform: translateX(100%);
         font-size: 4vh;
       }
@@ -79,6 +106,10 @@ const StyledNav = styled.nav`
             animation: slidein 0.2s forwards;
             animation-delay: 0.4s;
           }
+        }
+        .logout-button {
+          animation: slidein 0.2s forwards;
+          animation-delay: 0.5s;
         }
       }`
       :''
