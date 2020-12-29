@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import useFetchData from "../components/shared/hooks/useFetchData";
 
 export const LoggedContext = createContext()
 
