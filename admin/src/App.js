@@ -1,7 +1,11 @@
+import NavComponent from "./components/shared/NavComponent";
+import Routes from "./Routes";
+
 const App = () => {
   return (
     <div className="App">
-      Hello World
+      <NavComponent />
+      <Routes />
     </div>
   );
 }
