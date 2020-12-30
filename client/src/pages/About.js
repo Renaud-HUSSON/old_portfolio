@@ -20,10 +20,10 @@ const About = () => {
 }
 
 const StyledAbout = styled(motion.div)`
-  height: calc(100vh - ${props => props.theme.navHeight} - ${props => props.theme.footerHeight});
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: calc(100vh - ${props => props.theme.navHeight} - ${props => props.theme.footerHeight});
 `
 
 export default About

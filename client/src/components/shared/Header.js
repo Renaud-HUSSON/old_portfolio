@@ -23,7 +23,8 @@ const Header = () => {
 }
 
 const StyledHeader = styled.header`
-  font-size: clamp(16px, 3.2vh, 30px);
+  font-size: 2rem;
+  min-height: 75px;
   height: ${props => props.theme.navHeight};
   display: flex;
   justify-content: space-between;

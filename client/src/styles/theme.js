@@ -7,7 +7,7 @@ const theme = {
     darkRed: '#721c24',
     lightRed: '#f8d7da'
   },
-  navHeight: '8vh',
+  navHeight: 'clamp(75px, 8vh, 8vh)',
   footerHeight: '40px'
 }
 

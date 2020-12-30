@@ -36,8 +36,9 @@ const StyledNav = styled.nav`
   background: ${props => props.theme.colors.darkBlue};
   ul {
     display: flex;
+    
     > * {
-      font-size: 2.8vh;
+      font-size: 1.6rem;
     }
 
     a {
@@ -76,11 +77,11 @@ const StyledNav = styled.nav`
     opacity: ${props => props.nav ? 1 : 0};
     z-index: 10;
     transition: 0.3s ease;
+    overflow-y: scroll;
 
     ul {
       a, .logout-button {
         transform: translateX(100%);
-        font-size: 4vh;
       }
     }
     

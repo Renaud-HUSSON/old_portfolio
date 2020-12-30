@@ -191,6 +191,6 @@ INSERT INTO perms (endpoint, method, role) VALUES (5, "DELETE", "admin");
 -- User
 INSERT INTO users (username, password, role) VALUES(
   "renaud", 
-  "$2a$10$.b.arZ97mg5dFGmfuE73UuxnApp.DZT4BAzbEwS4kBsRAlyqs6lv6",
+  "$2y$10$/eUmJhsb0ssUQqeo6.VfnOqzRV5nxWN4cLzZOF9NrGroQNFxXp2DW",
   "admin"
 );

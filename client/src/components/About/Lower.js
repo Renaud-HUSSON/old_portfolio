@@ -7,6 +7,7 @@ const Lower = () => {
   
   return <StyledLower>
     <div className="fixbug"></div>
+    <img className="wave" src={`${process.env.PUBLIC_URL}/images/wave.svg`} alt="wave"/>
     <motion.img variants={anim} initial="hidden" animate="visible" className="devices" src={`${process.env.PUBLIC_URL}/images/devices.svg`} alt="devices"/>
   </StyledLower>
 }

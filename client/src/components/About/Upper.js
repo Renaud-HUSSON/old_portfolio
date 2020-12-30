@@ -13,19 +13,16 @@ const Upper = () => {
 }
 
 const StyledUpper = styled(motion.section)`
+  position: relative;
+  z-index: 2;
   margin: auto;
   align-items: center;
   width: 50vw;
   padding-top: 20vh;
-  height: calc(50vh - ${props => props.theme.navHeight});
 
   p {
-    font-size: 3vh;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-  }
-
-  a, a button {
-    font-size: 2vh;;
   }
 
   @media screen and (max-width: 768px){
