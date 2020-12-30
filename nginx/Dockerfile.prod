@@ -1,6 +1,5 @@
 FROM nginx:latest
 WORKDIR /etc/ssl/
-COPY ./ssl/* ./
-RUN cat certificate.crt ca_bundle.crt >> sslcertificate.crt
+COPY ./ssl/sslcertificate.crt ./sslcertificate.crt
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -20,20 +20,20 @@ const Projet = () => {
     return <StyledProjet variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
       <Helmet>
         <title>Renaud HUSSON | {projet.name}</title>
-        <meta name="description" content={`Cette page présente le projet suivant: ${projet.name}, en présentant à quoi il sert et avec quels technologies je l'ai créé`}/>
+        <meta name="description" content={`Cette page présente le projet suivant: ${projet.name}, en indicant à quoi il sert et avec quels technologies je l'ai créé`}/>
       </Helmet>
       <motion.div variants={slideInFromLeft()} initial="hidden" animate="visible">
         <h1>{projet.name}</h1>
         <p>Le lien du site: <a target="_blank" rel="noreferrer" href={projet.link}>{projet.link}</a></p>
         <p>Le code sur github: <a target="_blank" rel="noreferrer" href={projet.github}>{projet.github}</a></p>
       </motion.div>
-      <motion.div variants={slideInFromLeft(undefined, 0.15)} initial="hidden" animate="visible" className="">
-        <h2>PRÉSENTATION</h2>
-        <p>{projet.description}</p>
-      </motion.div>
-      <motion.div variants={slideInFromLeft(undefined, 0.3)} initial="hidden" animate="visible">
+      <motion.div variants={slideInFromLeft(undefined, 0.15)} initial="hidden" animate="visible">
         <h2>TECHNOLOGIES UTILISÉS</h2>
         <p className="tech">{projet.tech}</p>
+      </motion.div>
+      <motion.div variants={slideInFromLeft(undefined, 0.3)} initial="hidden" animate="visible" className="presentation">
+        <h2>PRÉSENTATION</h2>
+        <p>{projet.description}</p>
       </motion.div>
     </StyledProjet>
   }
@@ -53,8 +53,8 @@ p {
   }
 }
 
-.tech {
-  margin-bottom: 2rem;
+.presentation {
+  padding-bottom: 2rem;
 }
 `
 

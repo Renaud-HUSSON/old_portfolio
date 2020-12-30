@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.scss'
 import { LoggedProvider } from './contexts/Logged'
 
+require('dotenv').config()
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
