@@ -30,31 +30,6 @@ const About = () => {
           title="Messages" 
           body="Tous les messages"
         />
-        <CardComponent 
-          link="/admin/users" 
-          title="Users" 
-          body="Tous les utilisateurs"
-        />
-        <CardComponent 
-          link="/admin/perms" 
-          title="Perms" 
-          body="Toutes les permissions sur les endpoints, suivant la méthode HTTP et le role nécessaire"
-        />
-        <CardComponent 
-          link="/admin/endpoints" 
-          title="Endpoints" 
-          body="Tous les endpoints"
-        />
-        <CardComponent 
-          link="/admin/methods" 
-          title="Methods" 
-          body="Toutes les méthodes HTTP utilisés par mon API"
-        />
-        <CardComponent 
-          link="/admin/roles" 
-          title="Rôles" 
-          body="Tous les rôles que peuvent avoir les utilisateurs"
-        />
       </Row>
     </Container>
   </div>

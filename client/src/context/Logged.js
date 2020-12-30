@@ -7,12 +7,19 @@ export const LoggedProvider = ({children}) => {
 
   useEffect(() => {
     (async () => {
-      const isLogged = await fetch('/auth/logged')
+      const headers = new Headers()
+      headers.append('authorization', `Bearer ${process.env.REACT_APP_PUBLIC_ACCESS_TOKEN}`)
+      
+      const isLogged = await fetch('/auth/logged', {
+        headers: headers
+      })
       const json = await isLogged.json()
-
+      
       //Generates an access token if the user is connected
       if(json){
-        fetch('/auth/token')
+        fetch('/auth/token', {
+          headers: headers
+        })
       }
 
       setLogged(json)

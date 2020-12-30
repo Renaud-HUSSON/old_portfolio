@@ -187,6 +187,7 @@ INSERT INTO perms (endpoint, method, role) VALUES (5, "POST", "public");
 INSERT INTO perms (endpoint, method, role) VALUES (5, "PUT", "admin");
 INSERT INTO perms (endpoint, method, role) VALUES (5, "DELETE", "admin");
 
+
 -- User
 INSERT INTO users (username, password, role) VALUES(
   "renaud", 

@@ -12,11 +12,6 @@ const NavComponent = () => {
       <Nav.Item className="my-2 mr-4"><Link to="/admin/parcours" className="text-white">Parcours</Link></Nav.Item>
       <Nav.Item className="my-2 mr-4"><Link to="/admin/experiences" className="text-white">Expériences</Link></Nav.Item>
       <Nav.Item className="my-2 mr-4"><Link to="/admin/messages" className="text-white">Messages</Link></Nav.Item>
-      <Nav.Item className="my-2 mr-4"><Link to="/admin/users" className="text-white">Users</Link></Nav.Item>
-      <Nav.Item className="my-2 mr-4"><Link to="/admin/perms" className="text-white">Perms</Link></Nav.Item>
-      <Nav.Item className="my-2 mr-4"><Link to="/admin/endpoints" className="text-white">Endpoints</Link></Nav.Item>
-      <Nav.Item className="my-2 mr-4"><Link to="/admin/methods" className="text-white">Methods</Link></Nav.Item>
-      <Nav.Item className="my-2 mr-4"><Link to="/admin/roles" className="text-white">Rôles</Link></Nav.Item>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

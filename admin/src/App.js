@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import { Redirect, useLocation } from "react-router-dom";
+import { useContext } from "react";
 import NavComponent from "./components/shared/NavComponent";
 import { LoggedContext } from "./contexts/Logged";
 import Routes from "./Routes";

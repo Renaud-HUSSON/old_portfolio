@@ -18,9 +18,7 @@ router.get('/', (_, res) => {
       return
     }
 
-    res.send({
-      success: [...results]
-    })
+    res.send(results)
   })
 })
 

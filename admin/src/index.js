@@ -10,13 +10,11 @@ import { LoggedProvider } from './contexts/Logged'
 require('dotenv').config()
 
 ReactDOM.render(
-  <React.StrictMode>
     <BrowserRouter>
       <LoggedProvider>
         <App />
       </LoggedProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+    </BrowserRouter>,
   document.getElementById('root')
 )
 
