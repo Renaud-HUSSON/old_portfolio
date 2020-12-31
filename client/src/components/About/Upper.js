@@ -21,7 +21,7 @@ const StyledUpper = styled(motion.section)`
   padding-top: 20vh;
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
   }
 

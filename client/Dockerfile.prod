@@ -7,7 +7,7 @@ RUN npm run build
 
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
-COPY production.default.conf /etc/nginx/conf.d/production.default.conf
+COPY default.conf /etc/nginx/conf.d/production.default.conf
 COPY --from=react_build /frontend/build .
 
 EXPOSE 80
