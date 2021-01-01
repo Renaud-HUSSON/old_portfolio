@@ -3,12 +3,11 @@ import { Children, useContext } from "react"
 import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
 import { LoggedContext } from "../../../contexts/Logged"
-import usePostData from '../hooks/usePostData'
 
-const FormComponent = ({children, url}) => {
+const FormComponent = ({children, url, create=true, update=false}) => {
   const [logged, ] = useContext(LoggedContext)
   const [data, setData] = useState({})
-  
+
   const handleClick = () => {
     const headers = new Headers()
     headers.append('Authorization', `Bearer ${logged.token}`)
@@ -16,7 +15,8 @@ const FormComponent = ({children, url}) => {
     
     fetch(url, {
       headers: headers,
-      body: data
+      body: JSON.stringify(data),
+      method: update ? 'PUT' : create ? 'POST' :  'DELETE'
     })
   }
   

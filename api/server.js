@@ -1,4 +1,5 @@
 const express = require('express')
+const fileUpload = require('express-fileupload')
 
 require('dotenv').config()
 
@@ -6,8 +7,8 @@ require('dotenv').config()
 const app = express()
 
 //Body Parser Middleware
-app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
 //Custom middlewares
 app.use(require('../api/middlewares/verifyPerms'))

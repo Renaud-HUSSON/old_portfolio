@@ -12,7 +12,7 @@ const ModalComponent = ({children, header}) => {
       Ajouter
     </Button>
 
-    <Modal show={show} onHide={handleClose}>
+    <Modal size="lg" show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>{header[0].toUpperCase().concat(header.slice(1).toLowerCase())}</Modal.Title>
       </Modal.Header>

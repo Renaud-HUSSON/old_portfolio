@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newSkill = req.body
   
-  if(!(newSkill.name && newSkill.image)){
+  if(!(newSkill.name && newSkill.image && newSkill.type)){
     res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })

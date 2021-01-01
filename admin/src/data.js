@@ -15,7 +15,7 @@ const data = {
     update: true
   },
   experiences: {
-    url: "/api/experience",
+    url: "/api/experiences",
     create: true,
     update: true
   },

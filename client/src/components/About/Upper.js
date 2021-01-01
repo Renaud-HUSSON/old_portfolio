@@ -28,6 +28,10 @@ const StyledUpper = styled(motion.section)`
   @media screen and (max-width: 768px){
     width: 90vw;
 
+    p {
+      font-size: 1.2rem;
+    }
+
     button {
       font-size: 0.8rem;
     }

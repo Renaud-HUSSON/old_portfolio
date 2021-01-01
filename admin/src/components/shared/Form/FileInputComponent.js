@@ -4,7 +4,7 @@ const FileInputComponent = ({label, name, setData}) => {
   const handleChange = (e) => {
     setData(data => ({
       ...data,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.files[0]
     }))
   }
   
