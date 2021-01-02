@@ -98,4 +98,5 @@ services:
     command: npm run watch
     volumes:
       - ./images/:/images
+      - ./routes/:/routes
     

@@ -33,7 +33,7 @@ const Projet = () => {
       </motion.div>
       <motion.div variants={slideInFromLeft(undefined, 0.3)} initial="hidden" animate="visible" className="presentation">
         <h2>PRÉSENTATION</h2>
-        <p>{projet.description}</p>
+        <p><pre>{projet.description}</pre></p>
       </motion.div>
     </StyledProjet>
   }
@@ -46,6 +46,10 @@ const Projet = () => {
 const StyledProjet = styled(motion.div)`
 p {
   font-size: 1.2rem;
+  
+  pre {
+    white-space: pre-wrap;
+  }
   
   a {
     color: lightblue;

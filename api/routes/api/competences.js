@@ -6,6 +6,7 @@ const Database = require('../../config/db')
 const database = new Database()
 const db = database.connect()
 
+
 //Get all skills
 router.get('/', (_, res) => {
   const skill = new Competence(db)
@@ -43,7 +44,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newSkill = req.body
   
-  if(!(newSkill.name && newSkill.image && newSkill.type)){
+  if(!(newSkill.name && newSkill.type && newSkill.image)){
     res.status(400).send({
       error: 'Un ou plusieurs champs ne sont pas valides'
     })

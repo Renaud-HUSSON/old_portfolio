@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react"
-import {Redirect} from 'react-router-dom'
 import { LoggedContext } from "../../../contexts/Logged"
 
 /**
@@ -32,7 +31,7 @@ const useFetchData = (url) => {
         loading: false
       })
     })()
-  }, [url])
+  }, [url, logged.token])
 
   return data;
 }

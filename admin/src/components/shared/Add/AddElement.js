@@ -20,7 +20,7 @@ const AddElement = ({section, sectionData}) => {
     }
   }
 
-  return <FormComponent url={sectionData.url}>
+  return <FormComponent url={sectionData.url} section={section}>
     {
       componentDecider()
     }

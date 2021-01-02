@@ -70,7 +70,7 @@ module.exports = class Projet {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET name = ?, image = ?, description = ?, tech = ?, set link=?, set github=?`
+    const sql = `INSERT INTO ${this.#table} (name, image, description, tech, link, github) VALUES (?, ?, ?, ?, ?, ?)`
     const inserts = [
       this.#name,
       this.#image,
