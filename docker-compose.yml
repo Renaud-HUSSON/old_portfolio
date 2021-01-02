@@ -97,6 +97,6 @@ services:
     restart: always
     command: npm run watch
     volumes:
-      - ./images/:/images
-      - ./routes/:/routes
+      - ./images/images:/images/images
+      - ./images/routes/:/images/routes
     
