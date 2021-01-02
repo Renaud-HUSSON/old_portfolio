@@ -5,7 +5,7 @@ const fileUpload = require('express-fileupload')
 const app = express()
 
 //Middlewares
-// app.use(require('cookie-parser')())
+app.use(require('cookie-parser')())
 app.use(express.urlencoded({ extended: false }))
 app.use(fileUpload({createParentPath: '/images'}))
 
