@@ -1,0 +1,111 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--navHeight);
+  margin: 0rem 1rem;
+}
+
+header * {
+  font-family: 'Bebas Neue';
+}
+
+header p {
+  font-size: 2rem;
+}
+
+header nav {
+  font-size: 1.6rem;
+  position: relative;
+  z-index: 100;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  overflow: hidden;
+}
+
+header nav ul li{
+  text-decoration: none;
+  color: white;
+  padding: 1rem 0;
+}
+
+header nav ul li a {
+  padding: 1rem;
+}
+
+header .burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+header .burger > div {
+  height: 3px;
+  width: 2rem;
+  background-color: var(--white);
+  margin: 3px;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Portables */
+@media screen and (max-width: 768px){
+  header nav {
+    width: 100vw;
+    height: calc(100vh - var(--navHeight));
+    position: absolute;
+    top: var(--navHeight);
+    right: -100%;
+    opacity: 0;
+    background: var(--darkBlue);
+    transition: 0.5s;
+    z-index: 10;
+  }
+
+  header .active {
+    right: 0;
+    opacity: 1;
+  }
+
+  header nav ul {
+    flex-direction: column;
+  }
+
+  header nav.active ul li {
+    transform: translateX(100vw);
+    animation: slidein 0.3s forwards;
+  }
+
+  header nav.active ul li:nth-child(1){
+    animation-delay: 0.1s;
+  }
+
+  header nav.active ul li:nth-child(2){
+    animation-delay: 0.2s;
+  }
+
+  header nav.active ul li:nth-child(3){
+    animation-delay: 0.3s;
+  }
+
+  header nav.active ul li:nth-child(4){
+    animation-delay: 0.4s;
+  }
+  
+  header .burger {
+    display: flex;
+  }
+}
+

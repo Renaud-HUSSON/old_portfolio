@@ -1,0 +1,29 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content a {
+  text-decoration: underline;
+  color: lightblue;
+}
+
+.page-content .presentation, .page-content .technos {
+  font-size: 1.3rem;
+}
+
+.page-content .presentation .warning {
+  display: inline-block;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-content .presentation {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px){
+  .page-content .presentation, .page-content .technos {
+    font-size: 1rem;
+  }
+}

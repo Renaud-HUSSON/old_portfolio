@@ -1,0 +1,43 @@
+.page-content .projets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.page-content .projet {
+  position: relative;
+}
+
+.page-content .projet img {
+  width: 100%;
+}
+
+.page-content .projet .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.page-content .projet .hover p {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.page-content .projet:hover .hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 991px){
+  .page-content .projets {
+    grid-template-columns: 1fr;
+  }
+}

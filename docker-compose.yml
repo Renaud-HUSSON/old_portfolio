@@ -99,4 +99,12 @@ services:
     volumes:
       - ./images/images:/images/images
       - ./images/routes/:/images/routes
+  iut:
+    container_name: iut
+    image: iut
+    build:
+      context: ./iut
+    ports:
+      - 8085:80
+    restart: on-failure
     
