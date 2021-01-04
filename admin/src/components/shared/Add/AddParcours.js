@@ -1,9 +1,9 @@
 import InputComponent from "../Form/InputComponent"
 
-const AddParcours = ({setData}) => {
+const AddParcours = ({setData, data}) => {
   return <>
-    <InputComponent label="Date" name="date" setData={setData}/>
-    <InputComponent label="Nom" name="name" setData={setData}/>
+    <InputComponent data={data} label="Date" name="date" setData={setData}/>
+    <InputComponent data={data} label="Nom" name="name" setData={setData}/>
   </>
 }
 

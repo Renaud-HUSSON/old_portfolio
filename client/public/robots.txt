@@ -4,5 +4,9 @@ Disallow: /api/
 Disallow: /auth/
 Disallow: /images/
 Disallow: /login
+Disallow: /admin
+Disallow: /admin/
+Disallow: /iut
+Disallow: /iut/
 
 Sitemap: https://renaudhusson.fr/sitemap.xml

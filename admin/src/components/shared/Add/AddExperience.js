@@ -1,9 +1,9 @@
 import InputComponent from "../Form/InputComponent"
 
-const AddExperience = ({setData}) => {
+const AddExperience = ({setData, data}) => {
   return <>
-    <InputComponent label="Date" name="date" setData={setData}/>
-    <InputComponent label="Nom" name="nom" setData={setData}/>
+    <InputComponent data={data} label="Date" name="date" setData={setData}/>
+    <InputComponent data={data} label="Nom" name="name" setData={setData}/>
   </>
 }
 

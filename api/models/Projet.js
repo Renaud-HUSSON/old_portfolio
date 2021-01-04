@@ -90,16 +90,16 @@ module.exports = class Projet {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET name=?, image=?, description=?, tech=?, set link=?, set github=? WHERE id=?`
+    const sql = `UPDATE ${this.#table} SET name=?, image=?, description=?, tech=?, link=?, github=? WHERE id=?`
     
     const inserts = [
       this.#name,
       this.#image,
       this.#description,
       this.#tech,
-      this.#id,
       this.#link,
-      this.#github
+      this.#github,
+      this.#id
     ]
 
     this.#conn.query(sql, inserts, callback)

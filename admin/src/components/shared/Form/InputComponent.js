@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap"
 
-const InputComponent = ({label, type="text", name, setData, multiline=false}) => {
+const InputComponent = ({label, type="text", name, setData, data, multiline=false, disabled=false}) => {
   const handleChange = (e) => {
     setData(data => ({
       ...data,
@@ -12,8 +12,8 @@ const InputComponent = ({label, type="text", name, setData, multiline=false}) =>
     <Form.Label>{label}</Form.Label>
     {
       multiline
-      ?<Form.Control as="textarea" rows={6} type={type} onChange={handleChange} name={name}/>
-      :<Form.Control type={type} onChange={handleChange} name={name}/>
+      ?<Form.Control value={data[name]} disabled={disabled} as="textarea" rows={6} type={type} onChange={handleChange} name={name}/>
+      :<Form.Control value={data[name]} disabled={disabled} type={type} onChange={handleChange} name={name}/>
     }
   </Form.Group>
 }
