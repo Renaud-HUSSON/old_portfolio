@@ -12,8 +12,8 @@ const InputComponent = ({label, type="text", name, setData, data, multiline=fals
     <Form.Label>{label}</Form.Label>
     {
       multiline
-      ?<Form.Control value={data[name]} disabled={disabled} as="textarea" rows={6} type={type} onChange={handleChange} name={name}/>
-      :<Form.Control value={data[name]} disabled={disabled} type={type} onChange={handleChange} name={name}/>
+      ?<Form.Control value={data[name] ? data[name] : ''} disabled={disabled} as="textarea" rows={6} type={type} onChange={handleChange} name={name}/>
+      :<Form.Control value={data[name] ? data[name] : ''} disabled={disabled} type={type} onChange={handleChange} name={name}/>
     }
   </Form.Group>
 }

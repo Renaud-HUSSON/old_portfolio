@@ -9,7 +9,8 @@ const data = {
       description: '',
       tech: '',
       link: '',
-      github: ''
+      github: '',
+      image: ''
     }
   },
   competences: {
