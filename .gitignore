@@ -3,4 +3,4 @@ node_modules
 /database/data
 docker-compose.prod.yml
 /nginx/ssl
-/iut/
+/iut
