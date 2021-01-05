@@ -2,7 +2,7 @@ import data from "../../../data"
 import FileInputComponent from "../Form/FileInputComponent"
 import InputComponent from "../Form/InputComponent"
 
-const AddCompetence = ({setData, setFile}) => {
+const AddCompetence = ({setData, setFile, data}) => {
   return <>
     <InputComponent data={data} label="Nom" name="name" setData={setData}/>
     <InputComponent data={data} label="Type (langage ou autre)" name="type" setData={setData}/>

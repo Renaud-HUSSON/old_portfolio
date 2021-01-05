@@ -1,23 +1,12 @@
 const router = require('express').Router()
 const sharp = require('sharp')
-const jwt = require('jsonwebtoken')
+const verifyAccess = require('../utils/verifyAccess')
 
 router.post('/', async (req, res) => {
-  const access_token = req.cookies.access_token
+  //Verify that the user is authorized to upload an image
+  const verified = await verifyAccess(req)
 
-  if(!access_token){
-    return res.status(401).send({})
-  }
-
-  const verified = jwt.verify(access_token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-    if(err){
-      return res.status(401).send({})
-    }
-
-    if(decoded.role !== 'admin'){
-      return res.status(401).send({})
-    }
-  })
+  !verified.correct ? res.status(401).send() : ''
   
   const image = req.files.image
   const path = `/images/images/${req.body.path}/${image.name}`

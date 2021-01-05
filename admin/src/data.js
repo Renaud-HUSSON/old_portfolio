@@ -11,7 +11,8 @@ const data = {
       link: '',
       github: '',
       image: ''
-    }
+    },
+    image: true
   },
   competences: {
     url: "/api/competences",
@@ -22,7 +23,8 @@ const data = {
       name: '',
       type: '',
       image: ''
-    }
+    },
+    image: true
   },
   parcours: {
     url: "/api/parcours",
