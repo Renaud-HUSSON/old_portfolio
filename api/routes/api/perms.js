@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newPerm = req.body
 
-  if(!newPerm.id || !newPerm.chemin){
+  if(!newPerm.endpoint || !newPerm.method || !newPerm.role){
     return res.status(400).send({
       error: 'Un ou plusieurs champs sont vide, veuillez les remplir'
     })

@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newEndpoint = req.body
 
-  if(!newEndpoint.id || !newEndpoint.chemin){
+  if(!newEndpoint.chemin){
     return res.status(400).send({
       error: 'Un ou plusieurs champs sont vide, veuillez les remplir'
     })

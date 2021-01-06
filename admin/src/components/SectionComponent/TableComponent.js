@@ -22,7 +22,7 @@ const TableComponent = ({section, sectionData}) => {
   <tbody>
     {
       data.data.map((row) => {
-        return <tr key={row.id}>
+        return <tr key={row.id || uuidv4()}>
             {
               Object.values(row).map(property => {
                 return <td key={uuidv4()}>

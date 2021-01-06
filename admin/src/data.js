@@ -56,6 +56,42 @@ const data = {
       email: '',
       message: ''
     }
+  },
+  endpoints: {
+    url: "/api/endpoints",
+    create: true,
+    update: false,
+    data: {
+      id: '',
+      chemin: ''
+    }
+  },
+  roles: {
+    url: "/api/roles",
+    create: true,
+    update: false,
+    data: {
+      nom: ''
+    }
+  },
+  methods: {
+    url: "/api/methods",
+    create: true,
+    update: false,
+    data: {
+      nom: ''
+    }
+  },
+  perms: {
+    url: "/api/perms",
+    create: true,
+    update: true,
+    data: {
+      id: '',
+      endpoint: '',
+      method: '',
+      role: ''
+    }
   }
 }
 

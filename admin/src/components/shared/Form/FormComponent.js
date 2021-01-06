@@ -17,6 +17,8 @@ const FormComponent = ({children, url, section, create=true, update=false, defau
     }
   }, [defaultValue, update])
 
+  console.log(data)
+
   return <Form encType="multipart/form-data">
     {
       Children.map(children, children => {
