@@ -23,19 +23,6 @@ module.exports = class Perms {
   }
 
   /**
-   * Reads all perms in the database
-   * 
-   * @param {*} callback 
-   * 
-   */
-  read_all(callback){
-    const sql = `SELECT * FROM ${this.#table}, endpoints 
-                 WHERE ${this.#table}.id = endpoints.id`
-    
-    this.#conn.query(sql, callback)
-  }
-
-  /**
    * Reads a single perms base on its id
    * 
    * @param {*} callback 
@@ -50,60 +37,15 @@ module.exports = class Perms {
     this.#conn.query(sql, callback)
   }
 
-  /**
-   * Creates a perm in the database
-   * 
-   * @param {*} callback 
-   * 
-   */
-  create(callback){
-    const sql = `INSERT INTO ${this.#table} SET endpoint = ?, method = ?, role = ?`
-
-    const inserts = [
-      this.#endpoint,
-      this.#method,
-      this.#role
-    ]
-
-    this.#conn.query(sql, inserts, callback)
+  //GETTERS & SETTERS  
+  get id(){
+    return this.#id
   }
 
-  /**
-   * Updates a perm in the database
-   * 
-   * @param {*} callback 
-   * 
-   */
-  update(callback){
-    const sql = `UPDATE ${this.#table} SET endpoint = ?, method = ?, role = ? WHERE id = ?`
-
-    const inserts = [
-      this.#endpoint,
-      this.#method,
-      this.#role,
-      this.#id
-    ]
-
-    this.#conn.query(sql, inserts, callback)
-  }
-
-  /**
-   * Deletes a perm in the database
-   * 
-   * @param {*} callback 
-   * 
-   */
-  delete(callback){
-    const sql = `DELETE FROM ${this.#table} WHERE id = ?`
-
-    const inserts = [
-      this.#id
-    ]
-
-    this.#conn.query(sql, inserts, callback)
+  set id(id){
+    this.#id = id
   }
   
-  //GETTERS & SETTERS  
   get endpoint(){
     return this.#endpoint
   }

@@ -134,6 +134,10 @@ INSERT INTO endpoints (chemin) VALUES("/api/competences");
 INSERT INTO endpoints (chemin) VALUES("/api/parcours");
 INSERT INTO endpoints (chemin) VALUES("/api/experiences");
 INSERT INTO endpoints (chemin) VALUES("/api/messages");
+INSERT INTO endpoints (chemin) VALUES("/api/endpoints");
+INSERT INTO endpoints (chemin) VALUES("/api/methods");
+INSERT INTO endpoints (chemin) VALUES("/api/perms");
+INSERT INTO endpoints (chemin) VALUES("/api/roles");
 
 -- Methods
 INSERT INTO methods (nom) VALUES("GET");
@@ -171,6 +175,30 @@ INSERT INTO perms (endpoint, method, role) VALUES (5, "GET", "admin");
 INSERT INTO perms (endpoint, method, role) VALUES (5, "POST", "public");
 INSERT INTO perms (endpoint, method, role) VALUES (5, "PUT", "admin");
 INSERT INTO perms (endpoint, method, role) VALUES (5, "DELETE", "admin");
+
+-- /api/endpoints endpoint perms
+INSERT INTO perms (endpoint, method, role) VALUES (6, "GET", "public");
+INSERT INTO perms (endpoint, method, role) VALUES (6, "POST", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (6, "PUT", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (6, "DELETE", "admin");
+
+-- /api/methods endpoint perms
+INSERT INTO perms (endpoint, method, role) VALUES (7, "GET", "public");
+INSERT INTO perms (endpoint, method, role) VALUES (7, "POST", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (7, "PUT", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (7, "DELETE", "admin");
+
+-- /api/perms endpoint perms
+INSERT INTO perms (endpoint, method, role) VALUES (8, "GET", "public");
+INSERT INTO perms (endpoint, method, role) VALUES (8, "POST", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (8, "PUT", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (8, "DELETE", "admin");
+
+-- /api/roles endpoint perms
+INSERT INTO perms (endpoint, method, role) VALUES (9, "GET", "public");
+INSERT INTO perms (endpoint, method, role) VALUES (9, "POST", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (9, "PUT", "admin");
+INSERT INTO perms (endpoint, method, role) VALUES (9, "DELETE", "admin");
 
 
 -- User

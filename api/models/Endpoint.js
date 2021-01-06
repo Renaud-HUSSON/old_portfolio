@@ -14,7 +14,7 @@ module.exports = class Endpoint {
    * @param {*} [data] - Endpoints data
    * 
    */
-  constructor(db, data){
+  constructor(db, data={}){
     this.#conn = db
     data.id ? this.#id = data.id : ''
     data.chemin ? this.#chemin = data.chemin : ''

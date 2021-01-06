@@ -1,25 +1,25 @@
-module.exports = class Role {
+module.exports = class Method {
   //DB properties
-  #table = 'roles'
+  #table = 'methods'
   #conn
 
-  //Roles properties
+  //Methods properties
   #nom
 
   /**
-   * Role's constructor
+   * Method's constructor
    * 
    * @param {*} db - Database connection
-   * @param {*} [data] - Role's data
+   * @param {*} [data] - Method's data
    * 
    */
-  constructor(db, data){
+  constructor(db, data={}){
     this.#conn = db
     data.nom ? this.#nom = data.nom : ''
   }
 
   /**
-   * Reads all Roles in the database
+   * Reads all Methods in the database
    * 
    * @param {*} callback 
    * 
@@ -31,71 +31,71 @@ module.exports = class Role {
   }
 
   /**
-   * Reads a single Role in the database
+   * Reads a single Method in the database
    * 
    * @param {*} callback 
    * 
    */
   read_single(callback){
-    const sql = `SELECT * FROM ${this.#table} WHERE role = ${this.#role}`
+    const sql = `SELECT * FROM ${this.#table} WHERE nom = "${this.#nom}"`
 
     this.#conn.query(sql, callback)
   }
 
   /**
-   * Creates an Role in the database
+   * Creates an Method in the database
    * 
    * @param {*} callback 
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} set role = ?`
+    const sql = `INSERT INTO ${this.#table} set nom = ?`
 
     const inserts = [
-      this.#role
+      this.#nom
     ]
 
     this.#conn.query(sql, inserts, callback)
   }
 
   /**
-   * Updates an Role in the database
+   * Updates an Method in the database
    * 
    * @param {*} callback 
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET role = ?`
+    const sql = `UPDATE ${this.#table} SET nom = ?`
 
     const inserts = [
-      this.#role
+      this.#nom
     ]
 
     this.#conn.query(sql, inserts, callback)
   }
   
   /**
-   * Deletes an Role from the database
+   * Deletes an Method from the database
    * 
    * @param {*} callback 
    * 
    */
   delete(callback){
-    const sql = `DELETE FROM ${this.#table} WHERE role = ?`
+    const sql = `DELETE FROM ${this.#table} WHERE nom = ?`
 
     const inserts = [
-      this.#role
+      this.#nom
     ]
 
     this.#conn.query(sql, inserts, callback)
   }
 
   //GETTERS & SETTERS
-  get role(){
-    return this.#role
+  get nom(){
+    return this.#nom
   }
 
-  set role(role){
-    this.#role = Role
+  set nom(nom){
+    this.#nom = nom
   }
 }
