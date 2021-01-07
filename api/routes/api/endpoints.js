@@ -6,13 +6,13 @@ const database = new Database()
 const db = database.connect()
 
 //Get all endpoints
-router.get('/', (req, res) => {
+router.get('/', (_, res) => {
   const endpoint = new Endpoint(db)
 
   endpoint.read_all((err, results) => {
     if(err) return console.error(`Une erreur est survenue lors de la récupération des endpoints: ${err}`)
 
-    res.send([...results])
+    res.send(results)
   })
 })
 
@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
 
     if(results.length === 0) return console.error(`Le endpoint n°${id} n'existe pas`)
     
-    res.send([...results])
+    res.send(...results)
   })
 })
 
@@ -79,10 +79,9 @@ router.put('/', (req, res) => {
 })
 
 //Deletes an endpoint
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const endpoint = new Endpoint(db)
-  const id = req.body.id
-  
+  const id = req.params.id
   endpoint.id = id
 
   endpoint.delete(err => {

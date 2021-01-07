@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   role.read_all((err, results) => {
     if(err) return console.error(`Une erreur est survenue lors de la récupération des roles: ${err}`)
 
-    res.send([...results])
+    res.send(results)
   })
 })
 
@@ -28,7 +28,7 @@ router.get('/:nom', (req, res) => {
 
     if(results.length === 0) return console.error(`Le role ayant pour nom ${nom} n'existe pas`)
     
-    res.send([...results])
+    res.send(...results)
   })
 })
 
@@ -79,11 +79,11 @@ router.put('/', (req, res) => {
 })
 
 //Deletes a role
-router.delete('/', (req, res) => {
+router.delete('/:nom', (req, res) => {
   const role = new Role(db)
-  const id = req.body.id
+  const nom = req.params.nom
   
-  role.id = id
+  role.nom = nom
 
   role.delete(err => {
     if(err) return res.status(500).send({

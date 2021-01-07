@@ -27,7 +27,7 @@ const AddButton = ({url, data, file, section, logged, update, create}) => {
       headers: headers,
       body: JSON.stringify({
         ...data,
-        image: `/images/${section}/${data.image}`
+        image: !update ? `/images/${section}/${data.image}` : data.image
       }),
       method: update ? 'PUT' : create ? 'POST' :  'DELETE'
     })

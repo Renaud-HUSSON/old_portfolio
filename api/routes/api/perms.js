@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   perm.read_all((err, results) => {
     if(err) return console.error(`Une erreur est survenue lors de la récupération des permissions: ${err}`)
 
-    res.send([...results])
+    res.send(results)
   })
 })
 
@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
 
     if(results.length === 0) return console.error(`Le perm n°${id} n'existe pas`)
     
-    res.send([...results])
+    res.send(...results)
   })
 })
 
@@ -79,9 +79,9 @@ router.put('/', (req, res) => {
 })
 
 //Deletes a perm
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const perm = new Perm(db)
-  const id = req.body.id
+  const id = req.params.id
   
   perm.id = id
 

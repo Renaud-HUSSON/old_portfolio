@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
       return res.status(404).send(false)
     }
     
-    if(body.role !== 'admin' && results[0].role !== body.role){
+    if(body.roles !== 'admin' && results[0].roles !== body.roles){
       return res.status(403).send(false)
     }
 

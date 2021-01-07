@@ -15,7 +15,7 @@ router.get('/', (_, res) => {
       console.error(`Erreur pendant la récupération des experiences: ${err}`)
       return
     }
-    res.send([...results])
+    res.send(results)
   })
 })
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import useFetchData from '../shared/hooks/useFetchData'
 import Loading from "../shared/Loading"
 import { v4 as uuidv4 } from 'uuid';
+import d from '../../data'
 
 const TableComponent = ({section, sectionData}) => {
   const data = useFetchData(`${sectionData.url}`)
@@ -26,7 +27,7 @@ const TableComponent = ({section, sectionData}) => {
             {
               Object.values(row).map(property => {
                 return <td key={uuidv4()}>
-                  <Link className="text-dark" to={`/admin/${section}/${row.id}`}>
+                  <Link className="text-dark" to={`/admin/${section}/${row[d[section].single]}`}>
                     {property}
                   </Link>
                 </td>

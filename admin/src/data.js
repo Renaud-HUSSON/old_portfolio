@@ -3,6 +3,7 @@ const data = {
     url: "/api/projets",
     create: true,
     update: true,
+    single: 'id',
     data: {
       id: '',
       name: '',
@@ -18,6 +19,7 @@ const data = {
     url: "/api/competences",
     create: true,
     update: true,
+    single: 'id',
     data: {
       id: '',
       name: '',
@@ -30,6 +32,7 @@ const data = {
     url: "/api/parcours",
     create: true,
     update: true,
+    single: 'id',
     data: {
       id: '',
       date: '',
@@ -40,6 +43,7 @@ const data = {
     url: "/api/experiences",
     create: true,
     update: true,
+    single: 'id',
     data: {
       id: '',
       date: '',
@@ -50,6 +54,7 @@ const data = {
     url: "/api/messages",
     create: false,
     update: false,
+    single: 'id',
     data: {
       id: '',
       username: '',
@@ -61,6 +66,7 @@ const data = {
     url: "/api/endpoints",
     create: true,
     update: false,
+    single: 'id',
     data: {
       id: '',
       chemin: ''
@@ -70,6 +76,7 @@ const data = {
     url: "/api/roles",
     create: true,
     update: false,
+    single: 'nom',
     data: {
       nom: ''
     }
@@ -78,6 +85,7 @@ const data = {
     url: "/api/methods",
     create: true,
     update: false,
+    single: 'nom',
     data: {
       nom: ''
     }
@@ -86,11 +94,12 @@ const data = {
     url: "/api/perms",
     create: true,
     update: true,
+    single: 'id',
     data: {
       id: '',
-      endpoint: '',
-      method: '',
-      role: ''
+      endpoints: '',
+      methods: '',
+      roles: ''
     }
   }
 }

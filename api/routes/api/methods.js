@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   method.read_all((err, results) => {
     if(err) return console.error(`Une erreur est survenue lors de la récupération des méthodes: ${err}`)
 
-    res.send([...results])
+    res.send(results)
   })
 })
 
@@ -28,7 +28,7 @@ router.get('/:nom', (req, res) => {
 
     if(results.length === 0) return console.error(`La méthode ayant pour nom ${nom} n'existe pas`)
     
-    res.send([...results])
+    res.send(...results)
   })
 })
 
@@ -79,11 +79,11 @@ router.put('/', (req, res) => {
 })
 
 //Deletes a method
-router.delete('/', (req, res) => {
+router.delete('/:nom', (req, res) => {
   const method = new Method(db)
-  const id = req.body.id
+  const nom = req.params.nom
   
-  method.id = id
+  method.nom = nom
 
   method.delete(err => {
     if(err) return res.status(500).send({

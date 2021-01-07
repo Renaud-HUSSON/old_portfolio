@@ -1,11 +1,11 @@
 import InputComponent from "../Form/InputComponent"
 
-const UpdateCompetence = ({item, setData, data}) => {
+const UpdateCompetence = ({setData, data}) => {
   return <>
-    <InputComponent data={data} setData={setData} label='ID' name='id' disabled={true} value={item.id} />
-    <InputComponent data={data} setData={setData} label='Nom' name='name' value={item.name}/>
-    <InputComponent data={data} setData={setData} label='Type (langage ou autre)' name='type' value={item.type}/>
-    <InputComponent data={data} setData={setData} label='Image' name='image' disabled={true} value={item.image}/>
+    <InputComponent data={data} setData={setData} label='ID' name='id' disabled={true} />
+    <InputComponent data={data} setData={setData} label='Nom' name='name'/>
+    <InputComponent data={data} setData={setData} label='Type (langage ou autre)' name='type'/>
+    <InputComponent data={data} setData={setData} label='Image' name='image' disabled={true}/>
   </>
 }
 

@@ -16,7 +16,7 @@ router.get('/', (_, res) => {
       console.error(`Erreur pendant la récupération des compétences: ${err}`)
       return
     }
-    res.send([...results])
+    res.send(results)
   })
 })
 

@@ -19,9 +19,9 @@ module.exports = async (req, res, next) => {
   }
 
   const body_options = {
-    endpoint: req.originalUrl,
-    method: req.method,
-    role: verified.content.role
+    endpoints: req.originalUrl,
+    methods: req.method,
+    roles: verified.content.role
   }
 
   const headers_options = new fetch.Headers()

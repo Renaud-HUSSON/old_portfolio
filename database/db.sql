@@ -8,7 +8,7 @@ use portfolio;
 CREATE TABLE projets(
   id int NOT NULL AUTO_INCREMENT,
   name varchar(50) NOT NULL,
-  image varchar(50) NOT NULL,
+  image varchar(100) NOT NULL,
   description varchar(5000) NOT NULL,
   tech varchar(200) NOT NULL,
   link varchar(100),
@@ -65,12 +65,12 @@ CREATE TABLE methods(
 
 CREATE TABLE perms(
   id int NOT NULL AUTO_INCREMENT,
-  endpoint int NOT NULL,
-  method VARCHAR(10) NOT NULL,
-  role VARCHAR(15) NOT NULL,
-  CONSTRAINT FK_PERMS_ROLE FOREIGN KEY(role) REFERENCES roles(nom),
-  CONSTRAINT FK_PERMS_ENDPOINT FOREIGN KEY(endpoint) REFERENCES endpoints(id),
-  CONSTRAINT FK_PERMS_METHOD FOREIGN KEY(method) REFERENCES methods(nom),
+  endpoints int NOT NULL,
+  methods VARCHAR(10) NOT NULL,
+  roles VARCHAR(15) NOT NULL,
+  CONSTRAINT FK_PERMS_ROLE FOREIGN KEY(roles) REFERENCES roles(nom),
+  CONSTRAINT FK_PERMS_ENDPOINT FOREIGN KEY(endpoints) REFERENCES endpoints(id),
+  CONSTRAINT FK_PERMS_METHOD FOREIGN KEY(methods) REFERENCES methods(nom),
   PRIMARY KEY(id)
 );
 
@@ -147,58 +147,58 @@ INSERT INTO methods (nom) VALUES("DELETE");
 
 -- Perms
 -- /api/projets endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (1, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (1, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (1, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (1, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (1, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (1, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (1, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (1, "DELETE", "admin");
 
 -- /api/competences endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (2, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (2, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (2, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (2, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (2, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (2, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (2, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (2, "DELETE", "admin");
 
 -- /api/parcours endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (3, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (3, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (3, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (3, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (3, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (3, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (3, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (3, "DELETE", "admin");
 
 -- /api/experiences endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (4, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (4, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (4, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (4, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (4, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (4, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (4, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (4, "DELETE", "admin");
 
 -- /api/messages endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (5, "GET", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (5, "POST", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (5, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (5, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (5, "GET", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (5, "POST", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (5, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (5, "DELETE", "admin");
 
 -- /api/endpoints endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (6, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (6, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (6, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (6, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (6, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (6, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (6, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (6, "DELETE", "admin");
 
 -- /api/methods endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (7, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (7, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (7, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (7, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (7, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (7, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (7, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (7, "DELETE", "admin");
 
 -- /api/perms endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (8, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (8, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (8, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (8, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (8, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (8, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (8, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (8, "DELETE", "admin");
 
 -- /api/roles endpoint perms
-INSERT INTO perms (endpoint, method, role) VALUES (9, "GET", "public");
-INSERT INTO perms (endpoint, method, role) VALUES (9, "POST", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (9, "PUT", "admin");
-INSERT INTO perms (endpoint, method, role) VALUES (9, "DELETE", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (9, "GET", "public");
+INSERT INTO perms (endpoints, methods, roles) VALUES (9, "POST", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (9, "PUT", "admin");
+INSERT INTO perms (endpoints, methods, roles) VALUES (9, "DELETE", "admin");
 
 
 -- User

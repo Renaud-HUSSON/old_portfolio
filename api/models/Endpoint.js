@@ -69,10 +69,11 @@ module.exports = class Endpoint {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET chemin = ?`
+    const sql = `UPDATE ${this.#table} SET chemin = ? WHERE id = ?`
 
     const inserts = [
-      this.#chemin
+      this.#chemin,
+      this.#id
     ]
 
     this.#conn.query(sql, inserts, callback)
@@ -85,6 +86,7 @@ module.exports = class Endpoint {
    * 
    */
   delete(callback){
+    console.log(this.#id)
     const sql = `DELETE FROM ${this.#table} WHERE id = ?`
 
     const inserts = [

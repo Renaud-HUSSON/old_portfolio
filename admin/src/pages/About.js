@@ -30,6 +30,26 @@ const About = () => {
           title="Messages" 
           body="Tous les messages"
         />
+        <CardComponent 
+          link="/admin/endpoints" 
+          title="Endpoints" 
+          body="Tous les endpoints"
+        />
+        <CardComponent 
+          link="/admin/roles" 
+          title="Role" 
+          body="Tous les roles"
+        />
+        <CardComponent 
+          link="/admin/methods" 
+          title="Méthodes" 
+          body="Toutes les methodes"
+        />
+        <CardComponent 
+          link="/admin/perms" 
+          title="Permissions" 
+          body="Toutes les permissions"
+        />
       </Row>
     </Container>
   </div>

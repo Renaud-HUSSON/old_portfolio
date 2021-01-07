@@ -5,9 +5,9 @@ module.exports = class Perms {
 
   //Perms fields
   #id
-  #endpoint
-  #method
-  #role
+  #endpoints
+  #methods
+  #roles
 
   /**
    * 
@@ -17,9 +17,9 @@ module.exports = class Perms {
   constructor(db, data={}) {
     this.#conn = db
     data.id ? this.#id = data.id : ''
-    data.endpoint ? this.#endpoint = data.endpoint : ''
-    data.method ? this.#method = data.method : ''
-    data.role ? this.#role = data.role : ''
+    data.endpoints ? this.#endpoints = data.endpoints : ''
+    data.methods ? this.#methods = data.methods : ''
+    data.roles ? this.#roles = data.roles : ''
   }
 
   /**
@@ -30,9 +30,9 @@ module.exports = class Perms {
    */
   read_single(callback){
     const sql = `SELECT * FROM ${this.#table}, endpoints 
-                 WHERE endpoints.id = ${this.#table}.endpoint 
-                 AND "${this.#endpoint}" LIKE concat(endpoints.chemin, '%') 
-                 AND method = "${this.#method}"`
+                 WHERE endpoints.id = ${this.#table}.endpoints 
+                 AND "${this.#endpoints}" LIKE concat(endpoints.chemin, '%') 
+                 AND methods = "${this.#methods}"`
 
     this.#conn.query(sql, callback)
   }
@@ -46,27 +46,27 @@ module.exports = class Perms {
     this.#id = id
   }
   
-  get endpoint(){
-    return this.#endpoint
+  get endpoints(){
+    return this.#endpoints
   }
 
-  set endpoint(endpoint){
-    this.#endpoint = endpoint
+  set endpoints(endpoints){
+    this.#endpoints = endpoints
   }
 
-  get method(){
-    return this.#method
+  get methods(){
+    return this.#methods
   }
 
-  set method(method){
-    this.#method = method
+  set methods(methods){
+    this.#methods = methods
   }
 
-  get role(){
-    return this.#role
+  get roles(){
+    return this.#roles
   }
 
-  set role(role){
-    this.#role = role
+  set roles(roles){
+    this.#roles = roles
   }
 }

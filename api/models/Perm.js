@@ -5,9 +5,9 @@ module.exports = class Perms {
 
   //Perms fields
   #id
-  #endpoint
-  #method
-  #role
+  #endpoints
+  #methods
+  #roles
 
   /**
    * 
@@ -17,9 +17,9 @@ module.exports = class Perms {
   constructor(db, data={}) {
     this.#conn = db
     data.id ? this.#id = data.id : ''
-    data.endpoint ? this.#endpoint = data.endpoint : ''
-    data.method ? this.#method = data.method : ''
-    data.role ? this.#role = data.role : ''
+    data.endpoints ? this.#endpoints = data.endpoints : ''
+    data.methods ? this.#methods = data.methods : ''
+    data.roles ? this.#roles = data.roles : ''
   }
 
   /**
@@ -30,7 +30,7 @@ module.exports = class Perms {
    */
   read_all(callback){
     const sql = `SELECT ${this.#table}.*, endpoints.chemin as chemin FROM ${this.#table}, endpoints 
-                 WHERE ${this.#table}.endpoint = endpoints.id`
+                 WHERE ${this.#table}.endpoints = endpoints.id`
     
     this.#conn.query(sql, callback)
   }
@@ -45,7 +45,7 @@ module.exports = class Perms {
     console.log(this.#id)
     
     const sql = `SELECT ${this.#table}.*, endpoints.chemin as chemin FROM ${this.#table}, endpoints 
-                 WHERE endpoints.id = ${this.#table}.endpoint 
+                 WHERE endpoints.id = ${this.#table}.endpoints
                  AND ${this.#table}.id = ${this.#id}`
 
     this.#conn.query(sql, callback)
@@ -58,12 +58,12 @@ module.exports = class Perms {
    * 
    */
   create(callback){
-    const sql = `INSERT INTO ${this.#table} SET endpoint = ?, method = ?, role = ?`
+    const sql = `INSERT INTO ${this.#table} SET endpoints = ?, methods = ?, roles = ?`
 
     const inserts = [
-      this.#endpoint,
-      this.#method,
-      this.#role
+      this.#endpoints,
+      this.#methods,
+      this.#roles
     ]
 
     this.#conn.query(sql, inserts, callback)
@@ -76,12 +76,12 @@ module.exports = class Perms {
    * 
    */
   update(callback){
-    const sql = `UPDATE ${this.#table} SET endpoint = ?, method = ?, role = ? WHERE id = ?`
+    const sql = `UPDATE ${this.#table} SET endpoints = ?, methods = ?, roles = ? WHERE id = ?`
 
     const inserts = [
-      this.#endpoint,
-      this.#method,
-      this.#role,
+      this.#endpoints,
+      this.#methods,
+      this.#roles,
       this.#id
     ]
 
@@ -113,27 +113,27 @@ module.exports = class Perms {
     this.#id = id
   }
   
-  get endpoint(){
-    return this.#endpoint
+  get endpoints(){
+    return this.#endpoints
   }
 
-  set endpoint(endpoint){
-    this.#endpoint = endpoint
+  set endpoints(endpoints){
+    this.#endpoints = endpoints
   }
 
-  get method(){
-    return this.#method
+  get methods(){
+    return this.#methods
   }
 
-  set method(method){
-    this.#method = method
+  set methods(methods){
+    this.#methods = methods
   }
 
-  get role(){
-    return this.#role
+  get roles(){
+    return this.#roles
   }
 
-  set role(role){
-    this.#role = role
+  set roles(roles){
+    this.#roles = roles
   }
 }
