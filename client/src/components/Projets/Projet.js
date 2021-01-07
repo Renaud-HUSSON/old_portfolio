@@ -7,10 +7,6 @@ const Projet = ({name, image, id}) => {
   const bottom = slideInFromBottom(undefined, 0.2/id)
   const top = slideInFromTop(undefined, 0.2/id);
 
-  const thumbnailImage = image.replace(/^(.*)([.](jpg|png|jpeg))$/, '$1-thumbnail$2')
-
-  console.log(thumbnailImage)
-  
   return <Link to={`/projet/${id}`}>
     <StyledProjet variants={id % 2 === 0 ? top : bottom} initial="hidden" animate="visible" exit=" ">
       <img src={image} alt={name}/>

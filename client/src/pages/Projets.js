@@ -15,7 +15,7 @@ const Projets = () => {
   return <motion.section variants={anim} initial={fade.hidden} animate={fade.visible} exit="exit" className="content">
     <Helmet>
       <title>Renaud HUSSON | Projets</title>
-      <meta name="description" content="Cette page présente les différents projets que j'ai réalisé"/>
+      <meta name="description" content="Cette page présente les différents projets que j'ai réalisé, ainsi qu'un moyen d'accéder à chaque projet plus en détails"/>
     </Helmet>
     <h1>MES PROJETS</h1>
     <StyledProjets className="projets">
@@ -24,7 +24,7 @@ const Projets = () => {
         ?<>
           {
             data.data.map(projet => (
-              <Projet key={projet.id} id={projet.id} name={projet.name} image={projet.image}/>
+              <Projet key={projet.id} id={projet.id} name={projet.name} image={projet.image.replace(/^(.+)([.](jpg|png|jpeg))$/, '$1-thumbnail$2')}/>
             ))
           }
         </>
