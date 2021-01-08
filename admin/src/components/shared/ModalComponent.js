@@ -1,3 +1,4 @@
+import { Children, cloneElement } from "react";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
@@ -6,6 +7,8 @@ const ModalComponent = ({children, header}) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  
 
   return <>
     <Button className="m-2" variant="dark" onClick={handleShow}>
@@ -18,7 +21,11 @@ const ModalComponent = ({children, header}) => {
       </Modal.Header>
 
       <Modal.Body>
-        {children}
+        {
+          Children.map(children, children => {
+            return cloneElement(children, {handleClose: handleClose})
+          })
+        }
       </Modal.Body>
     </Modal>
   </>

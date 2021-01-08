@@ -6,7 +6,7 @@ import { LoggedContext } from "../../../contexts/Logged"
 import d from '../../../data.js'
 import AddButton from "../../SectionComponent/AddButton"
 
-const FormComponent = ({children, url, section, create=true, update=false, defaultValue={}}) => {
+const FormComponent = ({children, handleClose, url, section, create=true, update=false, defaultValue={}}) => {
   const [logged, ] = useContext(LoggedContext)
   const [data, setData] = useState(d[section].data)
   const [file, setFile] = useState()
@@ -23,7 +23,7 @@ const FormComponent = ({children, url, section, create=true, update=false, defau
         return cloneElement(children, {setData: setData, data: data, setFile: setFile, update: update})
       })
     }
-    <AddButton url={url} data={data} file={file} section={section} logged={logged} update={update} create={create}/>
+    <AddButton handleClose={handleClose} url={url} data={data} file={file} section={section} logged={logged} update={update} create={create}/>
   </Form>
 }
 

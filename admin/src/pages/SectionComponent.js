@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import AddElementModal from "../components/SectionComponent/AddElementModal"
 import TableComponent from "../components/SectionComponent/TableComponent"
 import data from '../data.js'
 
 const SectionComponent = () => {
+  const location = useLocation()
+
   const section = useParams().section
   
   return <div className="m-4">
@@ -11,7 +13,7 @@ const SectionComponent = () => {
       <h1>{section[0].toUpperCase().concat(section.slice(1).toLowerCase())}</h1>
       <AddElementModal section={section} sectionData={data[section]}/>
     </div>
-    <TableComponent section={section} sectionData={data[section]}/>
+    <TableComponent key={location.key} section={section} sectionData={data[section]}/>
   </div>
 }
 

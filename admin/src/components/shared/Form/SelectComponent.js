@@ -32,6 +32,7 @@ const SelectComponent = ({children, url, label, name, setData, data, update}) =>
       //If we update (not add) an item
       if(!update){
         const selectedItem = items.data.filter(item => {
+          // eslint-disable-next-line eqeqeq
           return item[d[name].single] == data[name]
         })
         if(selectedItem.length !== 0){

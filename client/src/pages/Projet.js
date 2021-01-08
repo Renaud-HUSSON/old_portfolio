@@ -33,7 +33,7 @@ const Projet = () => {
       </motion.div>
       <motion.div variants={slideInFromLeft(undefined, 0.3)} initial="hidden" animate="visible" className="presentation">
         <h2>PRÉSENTATION</h2>
-        <p><pre>{projet.description}</pre></p>
+        <pre><p>{projet.description}</p></pre>
       </motion.div>
     </StyledProjet>
   }
@@ -44,22 +44,22 @@ const Projet = () => {
 }
 
 const StyledProjet = styled(motion.div)`
-p {
-  font-size: 1.2rem;
-  
   pre {
     white-space: pre-wrap;
-  }
-  
-  a {
-    color: lightblue;
-    text-decoration: none;
-  }
-}
 
-.presentation {
-  padding-bottom: 2rem;
-}
+    p {
+      font-size: 1.2rem;
+    }
+    
+    a {
+      color: lightblue;
+      text-decoration: none;
+    }
+  }
+
+  .presentation {
+    padding-bottom: 2rem;
+  }
 `
 
 export default Projet

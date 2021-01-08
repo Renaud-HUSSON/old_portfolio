@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import { Button } from "react-bootstrap"
+import { Redirect } from "react-router-dom"
+import { AlertContext } from "../../contexts/Alert"
 import { LoggedContext } from "../../contexts/Logged"
 import d from "../../data"
 
 const DeleteButton = ({section, id}) => {
+  const [, setAlert] = useContext(AlertContext)
   const [logged,] = useContext(LoggedContext)
   
   //Deletes the image if the section contains an image
@@ -43,10 +46,17 @@ const DeleteButton = ({section, id}) => {
 
     const json = await data.json()
 
-    console.log(json)
+    setAlert({
+      active: true,
+      content: json,
+      redirect: `/admin/${section}`
+    })
+    
   }
   
-  return <Button onClick={handleClick} className="bg-danger border-0 my-1">Supprimer</Button>
+  return <>
+    <Button onClick={handleClick} className="bg-danger border-0 my-1">Supprimer</Button>
+  </>
 }
 
 export default DeleteButton

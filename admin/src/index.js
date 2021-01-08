@@ -6,14 +6,17 @@ import {BrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.scss'
 import { LoggedProvider } from './contexts/Logged'
+import { AlertProvider } from './contexts/Alert'
 
 require('dotenv').config()
 
 ReactDOM.render(
     <BrowserRouter>
-      <LoggedProvider>
-        <App />
-      </LoggedProvider>
+      <AlertProvider>
+        <LoggedProvider>
+          <App />
+        </LoggedProvider>
+      </AlertProvider>
     </BrowserRouter>,
   document.getElementById('root')
 )

@@ -8,7 +8,7 @@ import AddPerm from "./AddPerm"
 import AddProjet from "./AddProjet"
 import AddRole from "./AddRole"
 
-const AddElement = ({section, sectionData}) => {
+const AddElement = ({section, sectionData, handleClose}) => {
   const componentDecider = () => {
     switch(section){
       case 'projets':
@@ -32,7 +32,7 @@ const AddElement = ({section, sectionData}) => {
     }
   }
 
-  return <FormComponent url={sectionData.url} section={section}>
+  return <FormComponent url={sectionData.url} section={section} handleClose={handleClose}>
     {
       componentDecider()
     }
