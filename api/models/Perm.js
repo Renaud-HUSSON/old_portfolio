@@ -44,9 +44,7 @@ module.exports = class Perms {
   read_single(callback){
     console.log(this.#id)
     
-    const sql = `SELECT ${this.#table}.*, endpoints.chemin as chemin FROM ${this.#table}, endpoints 
-                 WHERE endpoints.id = ${this.#table}.endpoints
-                 AND ${this.#table}.id = ${this.#id}`
+    const sql = `SELECT * FROM ${this.#table} WHERE id = ${this.#id}`
 
     this.#conn.query(sql, callback)
   }

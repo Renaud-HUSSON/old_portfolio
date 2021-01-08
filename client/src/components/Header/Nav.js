@@ -25,7 +25,10 @@ const Nav = ({setNav, nav}) => {
       <MotionLink setNav={setNav} to="/contact"><li>ME CONTACTER</li></MotionLink>
       {
         logged
-        ? <button className="logout-button" onClick={logout}><li>Se déconnecter</li></button>
+        ? <>
+            <button className="logout-button" onClick={() => window.location.pathname = '/admin'}><li>ADMIN</li></button> 
+            <button className="admin-button" onClick={logout}><li>Logout</li></button>
+          </>
         : <></>
       }
     </ul>
@@ -45,7 +48,7 @@ const StyledNav = styled.nav`
       padding: 1rem;
     }
 
-    .logout-button {
+    .logout-button, .admin-button {
       border: none;
 
       &:hover {
@@ -80,7 +83,7 @@ const StyledNav = styled.nav`
     overflow-y: scroll;
 
     ul {
-      a, .logout-button {
+      a, .logout-button, .admin-button {
         transform: translateX(100%);
       }
     }
@@ -108,9 +111,14 @@ const StyledNav = styled.nav`
             animation-delay: 0.4s;
           }
         }
-        .logout-button {
+        .logout-button, .admin-button {
           animation: slidein 0.2s forwards;
-          animation-delay: 0.5s;
+        }
+        .logout-button {
+          animation-delay: calc(0.5s);
+        }
+        .admin-button {
+          animation-delay: calc(0.6s);  
         }
       }`
       :''

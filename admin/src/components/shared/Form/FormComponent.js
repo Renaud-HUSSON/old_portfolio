@@ -20,7 +20,7 @@ const FormComponent = ({children, url, section, create=true, update=false, defau
   return <Form encType="multipart/form-data">
     {
       Children.map(children, children => {
-        return cloneElement(children, {setData: setData, data: data, setFile: setFile})
+        return cloneElement(children, {setData: setData, data: data, setFile: setFile, update: update})
       })
     }
     <AddButton url={url} data={data} file={file} section={section} logged={logged} update={update} create={create}/>

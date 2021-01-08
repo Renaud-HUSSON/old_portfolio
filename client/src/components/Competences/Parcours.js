@@ -75,7 +75,7 @@ const StyledParcours = styled.section`
 
   @media screen and (max-width: 768px){
     .formation {
-      width: 70vw;
+      width: 90vw;
     }
   }
 `
