@@ -7,7 +7,7 @@ const Upper = () => {
   const anim = slideInFromBottom(0.5, 0.2)
   
   return <StyledUpper variants={anim} initial="hidden" animate="visible" >
-    <p>Bienvenue sur mon portfolio, je m'appelle Renaud HUSSON, je suis en 1ère année de DUT Informatique à Blagnac et j'apprends la programmation web en autodidacte</p>
+    <p>Bienvenue sur mon portfolio, je m'appelle <strong>Renaud HUSSON</strong>, je suis en 1ère année de DUT Informatique à Blagnac et j'apprends la <strong>programmation web</strong> en autodidacte</p>
     <Link to="/projets"><button>VOIR MES PROJETS</button></Link>
   </StyledUpper>
 }
@@ -23,6 +23,10 @@ const StyledUpper = styled(motion.section)`
   p {
     font-size: 1.6rem;
     margin-bottom: 1rem;
+  }
+
+  strong {
+    font-weight: 400;
   }
 
   @media screen and (max-width: 768px){

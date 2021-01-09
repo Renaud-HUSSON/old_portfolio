@@ -15,9 +15,9 @@ function App() {
         <Flash />
         <div className="App">
           <Header />
-          <div className="page-content">
+          <main className="page-content">
             <Routes />
-          </div>
+          </main>
           <Footer />
         </div>
       </ThemeProvider>

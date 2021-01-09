@@ -16,18 +16,18 @@ const Competences = () => {
       <title>Renaud HUSSON | Mes compétences</title>
       <meta name="description" content="Cette partie de mon portfolio présente mes compétences, qui sont certaines technologies du développement web que je maitrise"/>
     </Helmet>
-    <motion.div variants={slideInFromTop(undefined, undefined, 50)} initial="hidden" animate="visible">
+    <motion.section variants={slideInFromTop(undefined, undefined, 50)} initial="hidden" animate="visible">
       <h1>COMPÉTENCES</h1>
       <Skills />
-    </motion.div>
-    <motion.div variants={slideInFromTop(undefined, 0.15, 50)} initial="hidden" animate="visible">
+    </motion.section>
+    <motion.section variants={slideInFromTop(undefined, 0.15, 50)} initial="hidden" animate="visible">
       <h1>MON PARCOURS</h1>
       <Parcours />
-    </motion.div>
-    <motion.div variants={slideInFromTop(undefined, 0.3, 50)} initial="hidden" animate="visible">
+    </motion.section>
+    <motion.section variants={slideInFromTop(undefined, 0.3, 50)} initial="hidden" animate="visible">
       <h1>EXPÉRIENCES PROFESSIONNELLES</h1>
       <Experiences />
-    </motion.div>
+    </motion.section>
   </StyledCompetences>
 }
 

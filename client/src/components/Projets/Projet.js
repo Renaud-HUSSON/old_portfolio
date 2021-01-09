@@ -17,7 +17,7 @@ const Projet = ({name, image, id}) => {
   </Link>
 }
 
-const StyledProjet = styled(motion.div)`
+const StyledProjet = styled(motion.article)`
   position: relative;
 
   img {
