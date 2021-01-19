@@ -1,5 +1,6 @@
 FROM nginx:latest
 WORKDIR /etc/ssl/
 COPY ./ssl/sslcertificate.crt ./sslcertificate.crt
+COPY ./ssl/private.key ./private.key
 
 CMD ["nginx", "-g", "daemon off;"]
