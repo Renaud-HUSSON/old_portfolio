@@ -76,6 +76,8 @@ const StyledNav = styled.nav`
     width: 100vw;
     position: absolute;
     top: ${props => props.theme.navHeight};
+    display: ${props => props.nav ? 'block' : 'none'};
+    opacity: ${props => props.nav ? '0' : '100'};
     left: ${props => props.nav ? '0' : '100%'};
     opacity: ${props => props.nav ? 1 : 0};
     z-index: 10;
