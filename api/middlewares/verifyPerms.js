@@ -28,7 +28,7 @@ module.exports = async (req, res, next) => {
   headers_options.append('content-type', 'application/json')
   
   //Get perms of the concerned endpoint & method
-  const perms = await fetch(`http://portoflioauth:8082/auth/perms`, {
+  const perms = await fetch(`http://auth:8082/auth/perms`, {
     body: JSON.stringify(body_options),
     headers: headers_options,
     method: 'POST',
