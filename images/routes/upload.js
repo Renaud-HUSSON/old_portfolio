@@ -6,7 +6,9 @@ router.post('/', async (req, res) => {
   //Verify that the user is authorized to upload an image
   const verified = await verifyAccess(req)
 
-  !verified.correct ? res.status(401).send() : ''
+  if(!verified.correct){
+    return res.status(401).send()
+  } 
   
   const image = req.files.image
   const path = `/images/images/${req.body.path}/${image.name}`
@@ -24,14 +26,12 @@ router.post('/', async (req, res) => {
     
     //Creates a thumbnail if the image is different from the initial path
     if(path !== thumbnailPath){
-      sharp(path).resize(650, 365).toFile(thumbnailPath, (err, info) => {
+      sharp(path).resize(650, 365).toFile(thumbnailPath, (err) => {
         if(err){
           return res.status(500).send({
             error: `Une erreur est survenue lors du redimensionnement de l'image: ${err}`
           })
         }
-  
-        console.log(info)
       })
     }
     
